@@ -63,7 +63,7 @@ const signup = (request, response) => {
 
         const savePromise = newAccount.save();
 
-        savePromise.then(() => ({ redirect: '/maker'}));
+        savePromise.then(() => res.json({ redirect: '/maker' }));
 
         savePromise.catch((err) => {
             console.log(err);
