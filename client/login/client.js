@@ -30,9 +30,9 @@ const handleSignup = (e) => {
         return false;
     }
 
-    
+    console.log("serialized:" + $("signupForm").serialize());
 
-    //sendAjax('POST', $("#signupForm").attr("action"), $("signupForm").serialize(), redirect);
+    sendAjax('POST', $("#signupForm").attr("action"), $("signupForm").serialize(), redirect);
 
     return false;
 };
