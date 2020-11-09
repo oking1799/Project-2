@@ -17,10 +17,10 @@ const getToken = (request, response) => {
   const res = response;
 
   const csrfJSON = {
-    crsfToken: req.csrfToken(),
+    csrfToken: req.csrfToken(),
   };
 
-  res.json(crsfJSON);
+  res.json(csrfJSON);
 };
 
 const login = (request, response) => {
