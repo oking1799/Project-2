@@ -55,10 +55,6 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-app.set('views', `${__dirname}/../views`);
-app.use(cookieParser());
 app.use(session({
   key: 'sessionid',
   store: new RedisStore({
@@ -69,8 +65,13 @@ app.use(session({
   saveUninitialized : true,
   cookie: {
     httpOnly: true,
-  }
+  },
 }));
+
+app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+app.set('views', `${__dirname}/../views`);
+app.use(cookieParser());
 
 app.use(csrf());
 app.use((err, req, res, next) => {
