@@ -30,6 +30,8 @@ const handleSignup = (e) => {
         return false;
     }
 
+    console.log($("signupForm").serialize());
+
     sendAjax('POST', $("#signupForm").attr("action"), $("signupForm").serialize(), redirect);
 
     return false;
