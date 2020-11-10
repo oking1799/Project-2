@@ -79,6 +79,7 @@ nav:nth-child(1) {
     border-radius: 2px;
     color: white;
     text-decoration: none;
+    margin-left: 200px;
 }
 
 .makeDomoSubmit:link, .makeDomoSubmit:visited, .makeDomoSubmit:hover, .makeDomoSubmit:active {
