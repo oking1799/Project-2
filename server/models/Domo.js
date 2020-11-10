@@ -23,7 +23,7 @@ const DomoSchema = new mongoose.Schema({
     required: true,
   },
 
-  Talent: {
+  talent: {
     type: String,
     required: true,
     trim: true,
