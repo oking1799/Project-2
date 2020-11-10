@@ -23,6 +23,12 @@ const DomoSchema = new mongoose.Schema({
     required: true,
   },
 
+  Talent: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+
   owner: {
     type: mongoose.Schema.ObjectId,
     required: true,
@@ -38,6 +44,7 @@ const DomoSchema = new mongoose.Schema({
 DomoSchema.statics.toAPI = (doc) => ({
   name: doc.name,
   age: doc.age,
+  talent: doc.talent,
 });
 
 DomoSchema.statics.findByOwner = (ownerId, callback) => {
