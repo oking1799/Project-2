@@ -32,7 +32,7 @@ const login = (request, response) => {
   const password = `${req.body.pass}`;
 
   if (!username || !password) {
-    return res.status(400).json({ error: 'RAWR! All fields are required!' });
+    return res.status(400).json({ error: 'All fields are required!' });
   }
 
   return Account.AccountModel.authenticate(username, password, (err, account) => {
@@ -41,7 +41,7 @@ const login = (request, response) => {
     }
     req.session.account = Account.AccountModel.toAPI(account);
 
-    return res.json({ redirect: '/maker ' });
+    return res.json({ redirect: '/map ' });
   });
 };
 
@@ -75,7 +75,7 @@ const signup = (request, response) => {
 
     savePromise.then(() => {
       req.session.account = Account.AccountModel.toAPI(newAccount);
-      res.json({ redirect: '/maker' });
+      res.json({ redirect: '/map' });
     });
 
     savePromise.catch((err) => {

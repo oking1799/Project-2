@@ -30,7 +30,7 @@ const makeLocation = (req, res) => {
 
   const locationPromise = newLocation.save();
 
-  locationPromise.then(() => res.json({ redirect: '/maker' }));
+  locationPromise.then(() => res.json({ redirect: '/map' }));
 
   locationPromise.catch((err) => {
     console.log(err);
