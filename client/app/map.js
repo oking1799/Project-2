@@ -56,6 +56,9 @@ const locationList = function(props) {
 };
 
 const setup = function(csrf) {
+    let map; 
+    map = new google.maps.Map(
+        document.querySelector('#map'), {zoom: 4, center: uluru});
     ReactDOM.render(
         <MapPage csrf={csrf} />, document.querySelector("#map")
     );
