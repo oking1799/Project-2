@@ -54,3 +54,23 @@ const locationList = function(props) {
         </div>
     );
 };
+
+const setup = function(csrf) {
+    ReactDOM.render(
+        <MapPage csrf={csrf} />, document.querySelector("#map")
+    );
+
+    ReactDOM.render(
+        <locationList locations={[]} />, document.querySelector("#locations")
+    )
+}
+
+const getToken = () => {
+    sendAjax('GET', '/getToken', null, (result) => {
+        setup(result.csrfToken);
+    });
+};
+
+$(document).ready(function() {
+    getToken();
+});
