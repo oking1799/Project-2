@@ -90,6 +90,34 @@ var locationList = function locationList(props) {
     className: "locationList"
   }, locationNodes);
 };
+
+var setup = function setup(csrf) {
+  var map;
+  var uluru = {
+    lat: -25.344,
+    lng: 131.036
+  };
+  map = new google.maps.Map(document.querySelector('#map'), {
+    zoom: 4,
+    center: uluru
+  });
+  ReactDOM.render( /*#__PURE__*/React.createElement(MapPage, {
+    csrf: csrf
+  }), document.querySelector("#map"));
+  ReactDOM.render( /*#__PURE__*/React.createElement("locationList", {
+    locations: []
+  }), document.querySelector("#locations"));
+};
+
+var getToken = function getToken() {
+  sendAjax('GET', '/getToken', null, function (result) {
+    setup(result.csrfToken);
+  });
+};
+
+$(document).ready(function () {
+  getToken();
+});
 "use strict";
 
 var handleError = function handleError(message) {
