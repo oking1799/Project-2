@@ -68,7 +68,7 @@ const LocationList = function(props) {
 const setup = function(csrf) {
    
     ReactDOM.render(
-        <MapForm csrf={csrf} />, document.querySelector("#mapConatiner")
+        <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
     );
 
     ReactDOM.render(

@@ -105,7 +105,7 @@ function initMap() {
 var setup = function setup(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
     csrf: csrf
-  }), document.querySelector("#mapConatiner"));
+  }), document.querySelector("#mapContainer"));
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
     locations: []
   }), document.querySelector("#locations"));
