@@ -1,35 +1,40 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _googleMapsReact = require("google-maps-react");
+
 var MapPage = function MapPage(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("div", {
-    id: "map"
-  }), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
     action: "/addLocation",
     method: "post"
   }, /*#__PURE__*/React.createElement("label", {
-    "for": "locationName"
+    htmlFor: "locationName"
   }, "name: "), /*#__PURE__*/React.createElement("input", {
     id: "nameField",
     type: "text",
     name: "name",
     value: "uluru"
   }), /*#__PURE__*/React.createElement("label", {
-    "for": "latitide"
+    htmlFor: "latitide"
   }, "Latitude: "), /*#__PURE__*/React.createElement("input", {
     id: "latitudeField",
     type: "float",
     name: "latitude",
     value: "-25.344"
   }), /*#__PURE__*/React.createElement("label", {
-    "for": "longitude"
+    htmlFor: "longitude"
   }, "Longitude "), /*#__PURE__*/React.createElement("input", {
     id: "longitudeField",
     type: "float",
     name: "longitude",
     value: "131.036"
   }), /*#__PURE__*/React.createElement("label", {
-    "for": "rating"
+    htmlFor: "rating"
   }, "Rating "), /*#__PURE__*/React.createElement("input", {
     id: "ratingField",
     type: "number",
@@ -39,7 +44,7 @@ var MapPage = function MapPage(props) {
     name: "rating",
     value: "5"
   }), /*#__PURE__*/React.createElement("label", {
-    "for": "review"
+    htmlFor: "review"
   }, "Review "), /*#__PURE__*/React.createElement("input", {
     id: "reviewField",
     type: "text",
@@ -53,7 +58,7 @@ var MapPage = function MapPage(props) {
     action: "/getLocation",
     method: "get"
   }, /*#__PURE__*/React.createElement("label", {
-    "for": "query"
+    htmlFor: "query"
   }, "Search for a Specific Location"), /*#__PURE__*/React.createElement("input", {
     id: "queryField",
     type: "text",
@@ -73,7 +78,7 @@ var MapPage = function MapPage(props) {
   }));
 };
 
-var locationList = function locationList(props) {
+var LocationList = function LocationList(props) {
   if (props.locations.length === 0) {
     return /*#__PURE__*/React.createElement("div", {
       className: "locationList"
@@ -83,7 +88,6 @@ var locationList = function locationList(props) {
   }
 
   var locationNodes = props.locations.map(function (location) {
-    //console.log("talent" + domo.talent)
     return /*#__PURE__*/React.createElement("div", null);
   });
   return /*#__PURE__*/React.createElement("div", {
@@ -91,20 +95,29 @@ var locationList = function locationList(props) {
   }, locationNodes);
 };
 
-var setup = function setup(csrf) {
-  var map;
-  var uluru = {
-    lat: -25.344,
-    lng: 131.036
-  };
-  map = new google.maps.Map(document.querySelector('#map'), {
-    zoom: 4,
-    center: uluru
+var mapStyles = {
+  width: '40%',
+  height: '40%'
+};
+
+var MapContainer = function MapContainer(props) {
+  return /*#__PURE__*/React.createElement(_googleMapsReact.Map, {
+    google: this.props.google,
+    zoom: 8,
+    style: mapStyles,
+    initialCenter: {
+      lat: 47.444,
+      lng: -122.176
+    }
   });
+};
+
+var setup = function setup(csrf) {
+  ReactDOM.render( /*#__PURE__*/React.createElement(MapContainer, null), document.querySelector("#map"));
   ReactDOM.render( /*#__PURE__*/React.createElement(MapPage, {
     csrf: csrf
   }), document.querySelector("#map"));
-  ReactDOM.render( /*#__PURE__*/React.createElement("locationList", {
+  ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
     locations: []
   }), document.querySelector("#locations"));
 };
@@ -117,7 +130,14 @@ var getToken = function getToken() {
 
 $(document).ready(function () {
   getToken();
+  initMap();
 });
+
+var _default = (0, _googleMapsReact.GoogleApiWrapper)({
+  apiKey: 'AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I'
+})(MapContainer);
+
+exports["default"] = _default;
 "use strict";
 
 var handleError = function handleError(message) {

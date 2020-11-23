@@ -59,6 +59,11 @@ const LocationList = function(props) {
     );
 };
 
+const mapStyles = {
+    width: '40%',
+    height: '40%',
+};
+
  const MapContainer = function(props){
      return (
          <Map
