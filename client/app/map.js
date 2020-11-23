@@ -9,7 +9,7 @@ const handleLocation = (e) => {
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function(){
         loadLocationsFormServer();
     });
-    console.log($("locationForm").serialize());
+    console.log($("#locationForm").serialize());
     return false;
 }
 
@@ -40,7 +40,7 @@ const MapForm = (props) => {
         <input type="submit" value="Add Location" />
     </form>
 
-    
+
     <section id="content"></section>
     
     </div>
@@ -99,7 +99,7 @@ const setup = function(csrf) {
         <LocationList locations={[]} />, document.querySelector("#locations")
     );
 
-    initMap();
+  
 }
 
 const getToken = () => {
