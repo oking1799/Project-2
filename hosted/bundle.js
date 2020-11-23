@@ -1,7 +1,10 @@
 "use strict";
 
 var MapPage = function MapPage(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("script", {
+    defer: true,
+    src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I&callback=initMap"
+  }), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
     action: "/addLocation",
     method: "post"
