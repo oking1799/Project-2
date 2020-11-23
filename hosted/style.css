@@ -149,4 +149,12 @@ nav:nth-child(1) {
 }
 
 
+#map {
+    width: 60%;
+    height: 500px;
+    background-color: grey;
+    margin: auto;
+    padding-bottom: 50px;
+  }
+
 

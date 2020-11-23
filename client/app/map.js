@@ -4,9 +4,7 @@ const MapPage = (props) => {
     return (
         <div>
         <h1>Map Marker API</h1>
-        <script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I&callback=initMap">
-</script>
+        
     
     <form id="locationForm" action="/addLocation" method="post">
         <label htmlFor="locationName">name: </label>
