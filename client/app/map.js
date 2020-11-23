@@ -8,15 +8,15 @@ const MapForm = (props) => {
     <div id='map'></div>
     <form id="locationForm" action="/addLocation" method="post">
         <label htmlFor="locationName">name: </label>
-        <input id="nameField" type="text" name="name" value="uluru"/>
+        <input id="nameField" type="text" name="name" />
         <label htmlFor="latitide">Latitude: </label>
-        <input id="latitudeField" type="float" name="latitude" value="-25.344"/>
+        <input id="latitudeField" type="float" name="latitude" />
         <label htmlFor="longitude">Longitude </label>
-        <input id="longitudeField" type="float" name="longitude" value="131.036"/>
+        <input id="longitudeField" type="float" name="longitude" />
         <label htmlFor="rating">Rating </label>
-        <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" value="5"/>
+        <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" />
         <label htmlFor="review">Review </label>
-        <input id="reviewField" type="text" name="review" value="Biggest rock I ever did see!"/>
+        <input id="reviewField" type="text" name="review" />
         <input type="submit" value="Add Location" />
     </form>
     <form id="locationFormGet" action="/getLocation" method="get">
@@ -40,7 +40,7 @@ const LocationList = function(props) {
     if(props.locations.length === 0){
         return (
             <div className="locationList">
-                <h3 className="noLocation">No Locations yet</h3>
+                <h3 className="noLocation">No Locations yet sucka</h3>
             </div>
         );
     }
