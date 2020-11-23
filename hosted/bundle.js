@@ -1,6 +1,15 @@
 "use strict";
 
-var MapPage = function MapPage(props) {
+var Map = function Map(props) {
+  return /*#__PURE__*/React.createElement("div", {
+    id: "map"
+  }, /*#__PURE__*/React.createElement("script", {
+    defer: true,
+    src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I&callback=initMap"
+  }));
+};
+
+var MapForm = function MapForm(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
     action: "/addLocation",
@@ -98,12 +107,15 @@ function initMap() {
     zoom: 4,
     center: uluru
   });
+  ReactDOM.render( /*#__PURE__*/React.createElement(Map, {
+    map: map
+  }), document.querySelector("#map"));
 }
 
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(MapPage, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
     csrf: csrf
-  }), document.querySelector("#map"));
+  }), document.querySelector("#mapForm"));
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
     locations: []
   }), document.querySelector("#locations"));
