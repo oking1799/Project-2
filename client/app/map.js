@@ -55,12 +55,16 @@ const LocationList = function(props) {
     );
 };
 
-const setup = function(csrf) {
+ function initMap() {
     let map; 
     let uluru = {lat: -25.344, lng: 131.036};
     map = new google.maps.Map(
         document.querySelector('#map'), {zoom: 4, center: uluru});
 
+}
+
+const setup = function(csrf) {
+   
     ReactDOM.render(
         <MapPage csrf={csrf} />, document.querySelector("#map")
     );
@@ -73,6 +77,7 @@ const setup = function(csrf) {
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {
         setup(result.csrfToken);
+        initMap();
     });
 };
 
