@@ -1,11 +1,9 @@
-
-
 const MapForm = (props) => {
     return (
         <div>
         <h1>Map Marker API</h1>
         
-    
+    <div id='map'></div>
     <form id="locationForm" action="/addLocation" method="post">
         <label htmlFor="locationName">name: </label>
         <input id="nameField" type="text" name="name" value="uluru"/>
@@ -70,12 +68,14 @@ const LocationList = function(props) {
 const setup = function(csrf) {
    
     ReactDOM.render(
-        <MapForm csrf={csrf} />, document.querySelector("#mapForm")
+        <MapForm csrf={csrf} />, document.querySelector("#mapConatiner")
     );
 
     ReactDOM.render(
         <LocationList locations={[]} />, document.querySelector("#locations")
     );
+
+    initMap();
 }
 
 const getToken = () => {
@@ -87,5 +87,5 @@ const getToken = () => {
 
 $(document).ready(function() {
     getToken();
-    initMap();
+    
 });

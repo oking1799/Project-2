@@ -1,7 +1,9 @@
 "use strict";
 
 var MapForm = function MapForm(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("div", {
+    id: "map"
+  }), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
     action: "/addLocation",
     method: "post"
@@ -103,10 +105,11 @@ function initMap() {
 var setup = function setup(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
     csrf: csrf
-  }), document.querySelector("#mapForm"));
+  }), document.querySelector("#mapConatiner"));
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
     locations: []
   }), document.querySelector("#locations"));
+  initMap();
 };
 
 var getToken = function getToken() {
@@ -117,7 +120,6 @@ var getToken = function getToken() {
 
 $(document).ready(function () {
   getToken();
-  initMap();
 });
 "use strict";
 

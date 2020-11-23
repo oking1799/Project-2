@@ -149,7 +149,7 @@ nav:nth-child(1) {
 }
 
 
-#map {
+#mapContainer {
     width: 60%;
     height: 500px;
     background-color: grey;
