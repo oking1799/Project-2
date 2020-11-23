@@ -48,7 +48,13 @@ const LocationList = function(props) {
     const locationNodes = props.locations.map(function(location) {
         
         return (
-           <div>
+           <div key={location._id} className="location">
+               <img src="/assets/img/gloop.jpg" alt="icon" className="iconDefault" />
+               <h3 className="locationName"> Name: {location.name} </h3>
+               <h3 className="locationLat"> Lat: {location.latitude} </h3>
+               <h3 className="locationLng"> Lng: {location.longitude} </h3>
+               <h3 className="locationRating"> Rating: {location.rating} </h3>
+               <h3 className="locationReview"> Review: {location.review} </h3>
             </div>
         );
     });
