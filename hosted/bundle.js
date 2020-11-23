@@ -1,10 +1,5 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
 var _googleMapsReact = require("google-maps-react");
 
 var MapPage = function MapPage(props) {
@@ -132,12 +127,6 @@ $(document).ready(function () {
   getToken();
   initMap();
 });
-
-var _default = (0, _googleMapsReact.GoogleApiWrapper)({
-  apiKey: 'AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I'
-})(MapContainer);
-
-exports["default"] = _default;
 "use strict";
 
 var handleError = function handleError(message) {

@@ -81,6 +81,10 @@ app.use((err, req, res, next) => {
   return false;
 });
 
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I'
+})(MapContainer)
+
 router(app);
 
 app.listen(port, (err) => {
@@ -89,3 +93,5 @@ app.listen(port, (err) => {
   }
   console.log(`Listening on port ${port}`);
 });
+
+

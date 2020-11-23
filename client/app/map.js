@@ -102,6 +102,3 @@ $(document).ready(function() {
     initMap();
 });
 
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I'
-})(MapContainer)
