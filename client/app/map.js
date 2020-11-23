@@ -1,8 +1,10 @@
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 const MapPage = (props) => {
     return (
         <div>
         <h1>Map Marker API</h1>
-    <div id="map"></div>
+    
     <form id="locationForm" action="/addLocation" method="post">
         <label htmlFor="locationName">name: </label>
         <input id="nameField" type="text" name="name" value="uluru"/>
@@ -31,6 +33,8 @@ const MapPage = (props) => {
     );
 };
 
+
+
 const LocationList = function(props) {
     if(props.locations.length === 0){
         return (
@@ -41,7 +45,7 @@ const LocationList = function(props) {
     }
 
     const locationNodes = props.locations.map(function(location) {
-        //console.log("talent" + domo.talent)
+        
         return (
            <div>
             </div>
@@ -55,15 +59,22 @@ const LocationList = function(props) {
     );
 };
 
- function initMap() {
-    let map; 
-    let uluru = {lat: -25.344, lng: 131.036};
-    map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: uluru});
-
-}
+ const MapContainer = function(props){
+     return (
+         <Map
+            google={this.props.google}
+            zoom={8}
+            style={mapStyles}
+            initialCenter={{ lat: 47.444, lng: -122.176}}
+            />
+     );
+ }
 
 const setup = function(csrf) {
+   
+    ReactDOM.render(
+        <MapContainer />, document.querySelector("#map")
+    )
    
     ReactDOM.render(
         <MapPage csrf={csrf} />, document.querySelector("#map")
@@ -85,3 +96,7 @@ $(document).ready(function() {
     getToken();
     initMap();
 });
+
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I'
+})(MapContainer)
