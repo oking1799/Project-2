@@ -90,25 +90,19 @@ var LocationList = function LocationList(props) {
   }, locationNodes);
 };
 
-var mapStyles = {
-  width: '40%',
-  height: '40%'
-};
-
-var MapContainer = function MapContainer(props) {
-  return /*#__PURE__*/React.createElement(_googleMapsReact.Map, {
-    google: this.props.google,
-    zoom: 8,
-    style: mapStyles,
-    initialCenter: {
-      lat: 47.444,
-      lng: -122.176
-    }
+function initMap() {
+  var map;
+  var uluru = {
+    lat: -25.344,
+    lng: 131.036
+  };
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
   });
-};
+}
 
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(MapContainer, null), document.querySelector("#map"));
   ReactDOM.render( /*#__PURE__*/React.createElement(MapPage, {
     csrf: csrf
   }), document.querySelector("#map"));

@@ -59,27 +59,15 @@ const LocationList = function(props) {
     );
 };
 
-const mapStyles = {
-    width: '40%',
-    height: '40%',
-};
+ function initMap() {
+    let map; 
+    let uluru = {lat: -25.344, lng: 131.036};
+    map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
 
- const MapContainer = function(props){
-     return (
-         <Map
-            google={this.props.google}
-            zoom={8}
-            style={mapStyles}
-            initialCenter={{ lat: 47.444, lng: -122.176}}
-            />
-     );
- }
+}
 
 const setup = function(csrf) {
-   
-    ReactDOM.render(
-        <MapContainer />, document.querySelector("#map")
-    )
    
     ReactDOM.render(
         <MapPage csrf={csrf} />, document.querySelector("#map")
@@ -101,4 +89,3 @@ $(document).ready(function() {
     getToken();
     initMap();
 });
-
