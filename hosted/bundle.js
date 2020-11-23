@@ -1,6 +1,19 @@
 "use strict";
 
-var map;
+var handleLocation = function handleLocation(e) {
+  e.preventDefault();
+
+  if ($("#locationName").val() == '' || $("latitude").val() == '' || $("#longitude").val() == '') {
+    console.log("NAME LAT AND LNG NEEDED");
+    return false;
+  }
+
+  sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
+    loadLocationsFormServer();
+  });
+  console.log($("locationForm").serialize());
+  return false;
+};
 
 var MapForm = function MapForm(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("div", {
@@ -115,6 +128,14 @@ function initMap() {
   });
   console.log(map);
 }
+
+var loadLocationsFormServer = function loadLocationsFormServer() {
+  sendAjax('GET', '/getLocations', null, function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
+      locations: data.locations
+    }), document.querySelector("#locations"));
+  });
+};
 
 var setup = function setup(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {

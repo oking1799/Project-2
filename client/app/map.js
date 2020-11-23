@@ -1,4 +1,17 @@
-let map;
+const handleLocation = (e) => {
+    e.preventDefault();
+
+    if($("#locationName").val() == '' || $("latitude").val() == '' || $("#longitude").val() == ''){
+        console.log("NAME LAT AND LNG NEEDED")
+        return false;
+    }
+
+    sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function(){
+        loadLocationsFormServer();
+    });
+    console.log($("locationForm").serialize());
+    return false;
+}
 
 const MapForm = (props) => {
     return (
@@ -72,6 +85,14 @@ const LocationList = function(props) {
         document.getElementById('map'), {zoom: 4, center: uluru});
     console.log(map);
 }
+
+const loadLocationsFormServer = () => {
+    sendAjax('GET', '/getLocations', null, (data) => {
+        ReactDOM.render(
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        );
+    });
+};
 
 const setup = function(csrf) {
    
