@@ -77,10 +77,11 @@ const setup = function(csrf) {
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {
         setup(result.csrfToken);
-        initMap();
     });
+    
 };
 
 $(document).ready(function() {
     getToken();
+    initMap();
 });
