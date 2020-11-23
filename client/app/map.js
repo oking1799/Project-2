@@ -1,12 +1,4 @@
-const Map = (props) => {
-    return (
-        <div id="map">
-            <script defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I&callback=initMap">
-            </script>
-         </div>
-    );
-}
+
 
 const MapForm = (props) => {
     return (
@@ -73,9 +65,6 @@ const LocationList = function(props) {
     let uluru = {lat: -25.344, lng: 131.036};
     map = new google.maps.Map(
         document.getElementById('map'), {zoom: 4, center: uluru});
-    ReactDOM.render(
-        <Map map={map} />, document.querySelector("#map")
-    );
 }
 
 const setup = function(csrf) {
