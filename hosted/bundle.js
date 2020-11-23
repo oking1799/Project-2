@@ -11,7 +11,7 @@ var handleLocation = function handleLocation(e) {
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
     loadLocationsFormServer();
   });
-  console.log($("locationForm").serialize());
+  console.log($("#locationForm").serialize());
   return false;
 };
 
