@@ -1,4 +1,4 @@
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+//import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 const MapPage = (props) => {
     return (
