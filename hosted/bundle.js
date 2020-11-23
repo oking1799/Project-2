@@ -20,8 +20,11 @@ var MapForm = function MapForm(props) {
     id: "map"
   }), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
-    action: "/addLocation",
-    method: "post"
+    onSubmit: handleLocation,
+    name: "locationForm",
+    action: "/map",
+    method: "POST",
+    className: "locationForm"
   }, /*#__PURE__*/React.createElement("label", {
     htmlFor: "locationName"
   }, "name: "), /*#__PURE__*/React.createElement("input", {
@@ -56,29 +59,13 @@ var MapForm = function MapForm(props) {
     type: "text",
     name: "review"
   }), /*#__PURE__*/React.createElement("input", {
-    type: "submit",
-    value: "Add Location"
-  })), /*#__PURE__*/React.createElement("form", {
-    id: "locationFormGet",
-    action: "/getLocation",
-    method: "get"
-  }, /*#__PURE__*/React.createElement("label", {
-    htmlFor: "query"
-  }, "Search for a Specific Location"), /*#__PURE__*/React.createElement("input", {
-    id: "queryField",
-    type: "text",
-    name: "query"
+    type: "hidden",
+    name: "_csrf",
+    value: props.csrf
   }), /*#__PURE__*/React.createElement("input", {
     type: "submit",
-    value: "Get Location",
-    id: "getButton"
-  }), /*#__PURE__*/React.createElement("select", {
-    id: "methodSelect"
-  }, /*#__PURE__*/React.createElement("option", {
-    value: "get"
-  }, "GET"), /*#__PURE__*/React.createElement("option", {
-    value: "head"
-  }, "HEAD"))), /*#__PURE__*/React.createElement("section", {
+    value: "Add Location"
+  })), /*#__PURE__*/React.createElement("section", {
     id: "content"
   }));
 };
@@ -116,18 +103,6 @@ var LocationList = function LocationList(props) {
     className: "locationList"
   }, locationNodes);
 };
-
-function initMap() {
-  var uluru = {
-    lat: -25.344,
-    lng: 131.036
-  };
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-  console.log(map);
-}
 
 var loadLocationsFormServer = function loadLocationsFormServer() {
   sendAjax('GET', '/getLocations', null, function (data) {

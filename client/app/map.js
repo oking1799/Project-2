@@ -19,7 +19,13 @@ const MapForm = (props) => {
         <h1>Map Marker API</h1>
         
     <div id='map'></div>
-    <form id="locationForm" action="/addLocation" method="post">
+    <form id="locationForm" 
+            onSubmit={handleLocation} 
+            name="locationForm" 
+            action="/map"  
+            method="POST"
+            className="locationForm">
+
         <label htmlFor="locationName">name: </label>
         <input id="nameField" type="text" name="name" />
         <label htmlFor="latitide">Latitude: </label>
@@ -30,17 +36,11 @@ const MapForm = (props) => {
         <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" />
         <label htmlFor="review">Review </label>
         <input id="reviewField" type="text" name="review" />
+        <input type="hidden" name="_csrf" value={props.csrf} />
         <input type="submit" value="Add Location" />
     </form>
-    <form id="locationFormGet" action="/getLocation" method="get">
-      <label htmlFor="query">Search for a Specific Location</label>
-      <input id="queryField" type="text" name="query"/>
-        <input type="submit" value="Get Location" id="getButton" />
-    <select id="methodSelect">
-        <option value="get">GET</option>
-        <option value="head">HEAD</option>
-      </select>
-    </form>
+
+    
     <section id="content"></section>
     
     </div>
@@ -79,12 +79,7 @@ const LocationList = function(props) {
     );
 };
 
- function initMap() {
-    let uluru = {lat: -25.344, lng: 131.036};
-    map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: uluru});
-    console.log(map);
-}
+
 
 const loadLocationsFormServer = () => {
     sendAjax('GET', '/getLocations', null, (data) => {
