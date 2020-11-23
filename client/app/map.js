@@ -99,8 +99,8 @@ const setup = function(csrf) {
         <LocationList locations={[]} />, document.querySelector("#locations")
     );
 
-  
-}
+  loadLocationsFormServer();
+};
 
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {

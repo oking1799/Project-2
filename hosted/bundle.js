@@ -119,6 +119,7 @@ var setup = function setup(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
     locations: []
   }), document.querySelector("#locations"));
+  loadLocationsFormServer();
 };
 
 var getToken = function getToken() {
