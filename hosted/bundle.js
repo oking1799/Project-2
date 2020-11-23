@@ -1,7 +1,5 @@
 "use strict";
 
-var _googleMapsReact = require("google-maps-react");
-
 var MapPage = function MapPage(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
