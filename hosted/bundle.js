@@ -3,7 +3,7 @@
 var handleLocation = function handleLocation(e) {
   e.preventDefault();
 
-  if ($("#locationName").val() == '' || $("latitude").val() == '' || $("#longitude").val() == '') {
+  if ($("#nameField").val() == '' || $("#latitudeField").val() == '' || $("#longitudeField").val() == '') {
     handleError("Lat Lng and Name all needed");
     return false;
   }
@@ -11,7 +11,7 @@ var handleLocation = function handleLocation(e) {
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
     loadLocationsFormServer();
   });
-  console.log($("#locationForm").serialize());
+  console.log($("#locationForm").attr("action"));
   return false;
 };
 
@@ -63,8 +63,9 @@ var MapForm = function MapForm(props) {
     name: "_csrf",
     value: props.csrf
   }), /*#__PURE__*/React.createElement("input", {
+    className: "makeLocationSubmit",
     type: "submit",
-    value: "Add Location"
+    value: "make Location"
   })));
 };
 

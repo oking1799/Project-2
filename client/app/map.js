@@ -1,7 +1,7 @@
 const handleLocation = (e) => {
     e.preventDefault();
 
-    if($("#locationName").val() == '' || $("latitude").val() == '' || $("#longitude").val() == ''){
+    if($("#nameField").val() == '' || $("#latitudeField").val() == '' || $("#longitudeField").val() == ''){
         handleError("Lat Lng and Name all needed");
         return false;
     }
@@ -9,9 +9,9 @@ const handleLocation = (e) => {
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
         loadLocationsFormServer();
     });
-    console.log($("#locationForm").serialize());
+    console.log($("#locationForm").attr("action"));
     return false;
-}
+};
 
 const MapForm = (props) => {
     return (
@@ -37,7 +37,7 @@ const MapForm = (props) => {
         <label htmlFor="review">Review </label>
         <input id="reviewField" type="text" name="review" />
         <input type="hidden" name="_csrf" value={props.csrf} />
-        <input type="submit" value="Add Location" />
+        <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
     
     </div>
