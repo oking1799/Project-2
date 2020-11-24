@@ -18,6 +18,7 @@ const makeLocation = (req, res) => {
     return res.status(400).json({ error: 'A location name, latitude and longitude are required, otherwise I cant place a location -T. Shitty Project' });
   }
 
+  
   const locationData = {
     name: req.body.name,
     latitude: req.body.latitude,
@@ -25,6 +26,8 @@ const makeLocation = (req, res) => {
     rating: req.body.rating,
     review: req.body.review,
   };
+
+  console.log(locationData);
 
   const newLocation = new Location.LocationModel(locationData);
 
