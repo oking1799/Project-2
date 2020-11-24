@@ -89,8 +89,9 @@ app.listen(port, (err) => {
     throw err;
   }
   console.log(`Listening on port ${port}`);
+  console.log("app is: " + app);
 });
 
-console.log("app is: " + app);
+
 
 
