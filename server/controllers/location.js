@@ -62,6 +62,6 @@ const getLocations = (request, response) => {
   });
 };
 
-module.exports.makeLocation = makeLocation;
+module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
 module.exports.mapPage = mapPage;
