@@ -6,7 +6,7 @@ const handleLocation = (e) => {
         return false;
     }
 
-    sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function(){
+    sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
         loadLocationsFormServer();
     });
     console.log($("#locationForm").serialize());
