@@ -1,7 +1,7 @@
 "use strict";
 
 var handleLogin = function handleLogin(e) {
-  e.preventDefault(); //$("#domoMessage").animate({width:'hide'},350);
+  e.preventDefault(); 
 
   if ($("#user").val() == '' || $("#pass").val() == '') {
     handleError("RAWR! Username or password is empty");
@@ -14,7 +14,7 @@ var handleLogin = function handleLogin(e) {
 };
 
 var handleSignup = function handleSignup(e) {
-  e.preventDefault(); //$("#domoMessage").animate({width:'hide'},350);
+  e.preventDefault(); 
 
   if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
     handleError("All fields are required");
