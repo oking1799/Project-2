@@ -14,9 +14,8 @@ const mapPage = (req, res) => {
 };
 
 const makeLocation = (req, res) => {
-  console.log('the maker is being called!');
   if (!req.body.name || !req.body.latitude || !req.body.longitude) {
-    return res.status(400).json({ error: 'A location name, latitude and longitude are required, otherwise I cant place a location -T. Shitty Project' });
+    //return res.status(400).json({ error: 'A location name, latitude and longitude are required, otherwise I cant place a location -T. Shitty Project' });
   }
 
 
@@ -26,9 +25,10 @@ const makeLocation = (req, res) => {
     longitude: req.body.longitude,
     rating: req.body.rating,
     review: req.body.review,
+    owner: req.session.account._id,
   };
 
-  console.log(`data is: ${locationData}`);
+  
 
   const newLocation = new Location.LocationModel(locationData);
 

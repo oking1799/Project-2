@@ -39,10 +39,17 @@ const LocationSchema = new mongoose.Schema({
     trim: true,
   },
 
+  owner: {
+    type: mongoose.Schema.ObjectId,
+    required: true,
+    ref: 'Account',
+  },
+
   createdData: {
     type: Date,
     default: Date.now,
   },
+
 });
 
 LocationSchema.statics.toAPI = (doc) => ({
