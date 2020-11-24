@@ -84,11 +84,7 @@ var LocationList = function LocationList(props) {
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
       className: "location"
-    }, /*#__PURE__*/React.createElement("img", {
-      src: "/assets/img/gloop.jpg",
-      alt: "icon",
-      className: "iconDefault"
-    }), /*#__PURE__*/React.createElement("h3", {
+    }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationLat"
@@ -154,6 +150,5 @@ var sendAjax = function sendAjax(type, action, data, success) {
       var messageObj = JSON.parse(xhr.responseText);
       handleError(messageObj.error);
     }
-  });
-  console.log("ajax Sent " + action);
+  }); //console.log("ajax Sent " + action);
 };

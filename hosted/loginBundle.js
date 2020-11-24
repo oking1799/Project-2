@@ -1,7 +1,7 @@
 "use strict";
 
 var handleLogin = function handleLogin(e) {
-  e.preventDefault(); 
+  e.preventDefault();
 
   if ($("#user").val() == '' || $("#pass").val() == '') {
     handleError("RAWR! Username or password is empty");
@@ -14,7 +14,7 @@ var handleLogin = function handleLogin(e) {
 };
 
 var handleSignup = function handleSignup(e) {
-  e.preventDefault(); 
+  e.preventDefault();
 
   if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
     handleError("All fields are required");
@@ -163,6 +163,5 @@ var sendAjax = function sendAjax(type, action, data, success) {
       var messageObj = JSON.parse(xhr.responseText);
       handleError(messageObj.error);
     }
-  });
-  console.log("ajax Sent " + action);
+  }); //console.log("ajax Sent " + action);
 };
