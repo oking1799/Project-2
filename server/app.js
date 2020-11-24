@@ -60,7 +60,7 @@ app.use(session({
   store: new RedisStore({
     client: redisClient,
   }),
-  secret: 'Map',
+  secret: 'Domo Arigato',
   resave: true,
   saveUninitialized: true,
   cookie: {
@@ -81,12 +81,8 @@ app.use((err, req, res, next) => {
   return false;
 });
 
-//export default GoogleApiWrapper({
-  //apiKey: 'AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I'
-//})(MapContainer)
-
 router(app);
-console.log("app is: " + app);
+
 
 app.listen(port, (err) => {
   if (err) {
@@ -94,5 +90,7 @@ app.listen(port, (err) => {
   }
   console.log(`Listening on port ${port}`);
 });
+
+console.log("app is: " + app);
 
 
