@@ -15,7 +15,7 @@ const mapPage = (req, res) => {
 
 const makeLocation = (req, res) => {
   if (!req.body.name || !req.body.latitude || !req.body.longitude) {
-    //return res.status(400).json({ error: 'A location name, latitude and longitude are required, otherwise I cant place a location -T. Shitty Project' });
+    return res.status(400).json({ error: 'A location name, latitude and longitude are required' });
   }
 
 
