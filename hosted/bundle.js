@@ -154,4 +154,5 @@ var sendAjax = function sendAjax(type, action, data, success) {
       handleError(messageObj.error);
     }
   });
+  console.log("ajax Sent");
 };
