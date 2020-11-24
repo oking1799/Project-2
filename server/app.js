@@ -86,6 +86,7 @@ app.use((err, req, res, next) => {
 //})(MapContainer)
 
 router(app);
+console.log("app is: " + app);
 
 app.listen(port, (err) => {
   if (err) {
