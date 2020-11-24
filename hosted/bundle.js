@@ -4,7 +4,7 @@ var handleLocation = function handleLocation(e) {
   e.preventDefault();
 
   if ($("#locationName").val() == '' || $("latitude").val() == '' || $("#longitude").val() == '') {
-    console.log("NAME LAT AND LNG NEEDED");
+    handleError("Lat Lng and Name all needed");
     return false;
   }
 
@@ -65,12 +65,12 @@ var MapForm = function MapForm(props) {
   }), /*#__PURE__*/React.createElement("input", {
     type: "submit",
     value: "Add Location"
-  })), /*#__PURE__*/React.createElement("section", {
-    id: "content"
-  }));
+  })));
 };
 
 var LocationList = function LocationList(props) {
+  console.log(props);
+
   if (props.locations.length === 0) {
     return /*#__PURE__*/React.createElement("div", {
       className: "locationList"

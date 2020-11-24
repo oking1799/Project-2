@@ -2,7 +2,7 @@ const handleLocation = (e) => {
     e.preventDefault();
 
     if($("#locationName").val() == '' || $("latitude").val() == '' || $("#longitude").val() == ''){
-        console.log("NAME LAT AND LNG NEEDED")
+        handleError("Lat Lng and Name all needed");
         return false;
     }
 
@@ -39,9 +39,6 @@ const MapForm = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input type="submit" value="Add Location" />
     </form>
-
-
-    <section id="content"></section>
     
     </div>
     );
@@ -50,6 +47,7 @@ const MapForm = (props) => {
 
 
 const LocationList = function(props) {
+    console.log(props);
     if(props.locations.length === 0){
         return (
             <div className="locationList">
