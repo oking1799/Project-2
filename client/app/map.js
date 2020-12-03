@@ -61,7 +61,6 @@ const MapForm = (props) => {
 };
 
 const LocationSearch = (props) => {
-    
     return(
     <div>
         <h1>Locations</h1>
@@ -138,15 +137,14 @@ const loadLocationsFromServer = (csrf) => {
 };
 
 const loadAllLocationsFromServer = (csrf) => {
-
 ReactDOM.render(
     <LocationSearch csrf={csrf} />, document.querySelector("#mapContainer")
 );
     sendAjax('GET', '/getAllLocations', null, (data) => {
         ReactDOM.render(
-            <LocationList locations={data.locations} />, document.querySelector("#mapContainer")
-        )
-    })
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        );
+    });
 }
 
 const setup = function(csrf) {

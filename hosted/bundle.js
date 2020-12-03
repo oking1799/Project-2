@@ -162,7 +162,7 @@ var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
   sendAjax('GET', '/getAllLocations', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
-    }), document.querySelector("#mapContainer"));
+    }), document.querySelector("#locations"));
   });
 };
 
