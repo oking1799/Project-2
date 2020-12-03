@@ -36,7 +36,7 @@ const MapForm = (props) => {
         <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" />
         <label htmlFor="review">Review </label>
         <input id="reviewField" type="text" name="review" />
-        <input type="hidden" name="_csrf" value={p65rops.csrf} />
+        <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
    
