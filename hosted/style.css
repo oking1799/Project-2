@@ -116,3 +116,7 @@ nav:nth-child(1) {
   }
 
 
+#map{
+    width: 500px;
+    height: 500px;
+}

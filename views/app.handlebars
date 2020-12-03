@@ -9,12 +9,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
   <script>
     function initMap() {
+      let map
     console.log("making map...");
     let uluru = {lat: -25.344, lng: 131.036};
     // The map, centered at Uluru
-    let map = new google.maps.Map(
-        document.querySelector('#map'), {zoom: 4, center: uluru});
-        console.log("map created: " + map);
+    map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+        console.log("map created: " + map.zoom);
     }
     
   </script>
