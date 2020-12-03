@@ -7,7 +7,7 @@ const handleLocation = (e) => {
     }
 
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
-        loadLocationsFormServer();
+        loadLocationsFromServer();
     });
     //console.log($("#locationForm").attr("action"));
     return false;
@@ -61,6 +61,8 @@ const MapForm = (props) => {
 };
 
 const LocationSearch = (props) => {
+    
+    return(
     <div>
         <h1>Locations</h1>
         <p>On this page you can find locations created by other users! filter results with a search</p>
@@ -79,6 +81,7 @@ const LocationSearch = (props) => {
             </form>
 
      </div>
+    );
 }
 
 
@@ -162,7 +165,7 @@ const setup = function(csrf) {
         return false;
     })
 
-    loadLocationsFormServer(csrf);
+    loadLocationsFromServer(csrf);
 };
 
 const getToken = () => {

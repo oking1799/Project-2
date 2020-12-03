@@ -9,7 +9,7 @@ var handleLocation = function handleLocation(e) {
   }
 
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
-    loadLocationsFormServer();
+    loadLocationsFromServer();
   }); //console.log($("#locationForm").attr("action"));
 
   return false;
@@ -83,8 +83,7 @@ var MapForm = function MapForm(props) {
 };
 
 var LocationSearch = function LocationSearch(props) {
-  /*#__PURE__*/
-  React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Locations"), /*#__PURE__*/React.createElement("p", null, "On this page you can find locations created by other users! filter results with a search"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Locations"), /*#__PURE__*/React.createElement("p", null, "On this page you can find locations created by other users! filter results with a search"), /*#__PURE__*/React.createElement("form", {
     id: "searchForm",
     onSubmit: searchLocation,
     name: "searchForm",
@@ -180,7 +179,7 @@ var setup = function setup(csrf) {
     loadAllLocationsFromServer(csrf);
     return false;
   });
-  loadLocationsFormServer(csrf);
+  loadLocationsFromServer(csrf);
 };
 
 var getToken = function getToken() {
