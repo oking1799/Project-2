@@ -83,15 +83,7 @@ const LocationList = function(props) {
     
 
 const loadLocationsFormServer = () => {
-    sendAjax('GET', '/getLocations', null, (data) => {
-        ReactDOM.render(
-            <LocationList locations={data.locations} />, document.querySelector("#locations")
-        );
-    });
-};
 
-const setup = function(csrf) {
-   
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
     );
@@ -99,8 +91,36 @@ const setup = function(csrf) {
     ReactDOM.render(
         <LocationList locations={[]} />, document.querySelector("#locations")
     );
+    sendAjax('GET', '/getLocations', null, (data) => {
+        ReactDOM.render(
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        );
+    });
+};
 
-  loadLocationsFormServer();
+const loadAllLocationsFromServer = () => {
+    sendAjax('GET', '/getAllLocations', null, (data) => {
+        ReactDOM.render(
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        )
+    })
+}
+
+const setup = function(csrf) {
+    const makeButton = document.querySelector("#makeButton");
+    const allButton = document.querySelector("#allButton");
+
+    makeButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        loadLocationsFormServer(csrfToken);
+        return false;
+    });
+
+    allButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        loadAllLocationsFromServer(csrf);
+        return false;
+    })
 };
 
 const getToken = () => {

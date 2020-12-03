@@ -62,6 +62,18 @@ const getLocations = (request, response) => {
   });
 };
 
+const getAllLocations = (request, response) => {
+  return Location.LocationModel.find({}, (err, docs) => {
+    if(err){
+      console.log(err);
+      return response.status(400).json({ error: 'An error occured' });
+    }
+
+    return response.json({ locations: docs })
+  });
+}
+
 module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
+module.exports.getAllLocations = getAllLocations;
 module.exports.mapPage = mapPage;
