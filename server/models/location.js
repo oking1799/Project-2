@@ -23,7 +23,7 @@ const LocationSchema = new mongoose.Schema({
   },
 
   description: {
-    type: string,
+    type: String,
     trim: true,
   },
 

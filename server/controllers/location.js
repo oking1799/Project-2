@@ -15,7 +15,7 @@ const mapPage = (req, res) => {
 
 const makeLocation = (req, res) => {
   if (!req.body.name || !req.body.country) {
-    return res.status(400).json({ error: 'A location name and country' });
+    return res.status(400).json({ error: 'A location name and country are needed' });
   }
 
 
