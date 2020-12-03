@@ -99,7 +99,7 @@ var LocationList = function LocationList(props) {
   }, locationNodes);
 };
 
-var loadLocationsFormServer = function loadLocationsFormServer() {
+var loadLocationsFormServer = function loadLocationsFormServer(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
     csrf: csrf
   }), document.querySelector("#mapContainer"));
@@ -113,7 +113,7 @@ var loadLocationsFormServer = function loadLocationsFormServer() {
   });
 };
 
-var loadAllLocationsFromServer = function loadAllLocationsFromServer() {
+var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
   sendAjax('GET', '/getAllLocations', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
@@ -126,7 +126,7 @@ var setup = function setup(csrf) {
   var allButton = document.querySelector("#allButton");
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
-    loadLocationsFormServer(csrfToken);
+    loadLocationsFormServer(csrf);
     return false;
   });
   allButton.addEventListener("click", function (e) {

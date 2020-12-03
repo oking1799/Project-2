@@ -82,7 +82,7 @@ const LocationList = function(props) {
 
     
 
-const loadLocationsFormServer = () => {
+const loadLocationsFormServer = (csrf) => {
 
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
@@ -98,7 +98,7 @@ const loadLocationsFormServer = () => {
     });
 };
 
-const loadAllLocationsFromServer = () => {
+const loadAllLocationsFromServer = (csrf) => {
     sendAjax('GET', '/getAllLocations', null, (data) => {
         ReactDOM.render(
             <LocationList locations={data.locations} />, document.querySelector("#locations")
