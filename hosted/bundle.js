@@ -19,7 +19,7 @@ var searchLocation = function searchLocation(e) {
   e.preventDefault(); //make sure to return relevant search data later
 
   sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
-    loadAllLocationsFormServer();
+    loadAllLocationsFromServer();
   });
   console.log($("#locationForm").serialize());
   return false;
