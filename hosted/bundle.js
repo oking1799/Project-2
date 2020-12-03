@@ -82,7 +82,7 @@ var MapForm = function MapForm(props) {
   })));
 };
 
-var locationSearch = function locationSearch(props) {
+var LocationSearch = function LocationSearch(props) {
   /*#__PURE__*/
   React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Locations"), /*#__PURE__*/React.createElement("p", null, "On this page you can find locations created by other users! filter results with a search"), /*#__PURE__*/React.createElement("form", {
     id: "searchForm",
@@ -157,7 +157,7 @@ var loadLocationsFromServer = function loadLocationsFromServer(csrf) {
 };
 
 var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement("locationSearch", {
+  ReactDOM.render( /*#__PURE__*/React.createElement(LocationSearch, {
     csrf: csrf
   }), document.querySelector("#mapContainer"));
   sendAjax('GET', '/getAllLocations', null, function (data) {
