@@ -77,7 +77,7 @@ var LocationList = function LocationList(props) {
       className: "locationList"
     }, /*#__PURE__*/React.createElement("h3", {
       className: "noLocation"
-    }, "No Locations yet sucka"));
+    }, "No Locations yet"));
   }
 
   var locationNodes = props.locations.map(function (location) {
@@ -100,6 +100,20 @@ var LocationList = function LocationList(props) {
     className: "locationList"
   }, locationNodes);
 };
+
+function initMap() {
+  var map;
+  console.log("making map...");
+  var uluru = {
+    lat: -25.344,
+    lng: 131.036
+  }; // The map, centered at Uluru
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
+  });
+}
 
 var loadLocationsFormServer = function loadLocationsFormServer() {
   sendAjax('GET', '/getLocations', null, function (data) {

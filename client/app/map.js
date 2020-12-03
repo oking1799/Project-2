@@ -39,9 +39,7 @@ const MapForm = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
-    <script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I&callback=initMap">
-</script>
+   
     </div>
     
     );
