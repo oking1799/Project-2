@@ -39,11 +39,9 @@ const MapForm = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
-
     <script defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhbypdR7ewb2NJ-73kum-rPI2oUzoXL5I&callback=initMap">
 </script>
-   
     </div>
     
     );
@@ -89,7 +87,7 @@ function initMap() {
   // The map, centered at Uluru
   map = new google.maps.Map(
       document.getElementById('map'), {zoom: 4, center: uluru});
-      console.log("map created: " + map.zoom);
+     
   }
 
     
