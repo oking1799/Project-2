@@ -112,7 +112,7 @@ const setup = function(csrf) {
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
-        loadLocationsFormServer(csrfToken);
+        loadLocationsFormServer(csrf);
         return false;
     });
 
