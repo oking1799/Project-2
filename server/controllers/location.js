@@ -28,7 +28,6 @@ const makeLocation = (req, res) => {
     owner: req.session.account._id,
   };
 
-  
 
   const newLocation = new Location.LocationModel(locationData);
 
@@ -62,20 +61,25 @@ const getLocations = (request, response) => {
   });
 };
 
-const getAllLocations = (request, response) => {
-  return Location.LocationModel.find({}, (err, docs) => {
-    if(err){
-      console.log(err);
-      return response.status(400).json({ error: 'An error occured' });
-    }
+const getAllLocations = (request, response) => Location.LocationModel.find({}, (err, docs) => {
+  if (err) {
+    console.log(err);
+    return response.status(400).json({ error: 'An error occured' });
+  }
 
-    return response.json({ locations: docs })
-  });
-}
+  return response.json({ locations: docs });
+});
 
-const searchLocation = (request, response) => {
-    console.log(request.body.name);
-}
+const searchLocation = (request, response) => Location.LocationModel.find({}, (err, docs) => {
+  console.log(request.body.name);
+  if (err) {
+    console.log(err);
+    return response.status(400).json({ error: 'An error occured' });
+  }
+
+  return response.json({ locations: docs });
+ 
+});
 
 module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
