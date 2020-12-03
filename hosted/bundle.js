@@ -10,8 +10,23 @@ var handleLocation = function handleLocation(e) {
 
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
     loadLocationsFormServer();
+  }); //console.log($("#locationForm").attr("action"));
+
+  return false;
+};
+
+var searchLocation = function searchLocation(e) {
+  e.preventDefault();
+
+  if ($("#nameSearch").val() != '' || $("#countrySearch").val() != '') {
+    handleError("a country or a name are needed to search");
+    return false;
+  }
+
+  sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
+    loadAllLocationsFormServer();
   });
-  console.log($("#locationForm").attr("action"));
+  console.log($("#locationForm").serialize());
   return false;
 };
 
@@ -67,6 +82,34 @@ var MapForm = function MapForm(props) {
   })));
 };
 
+var locationSearch = function locationSearch(props) {
+  /*#__PURE__*/
+  React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Locations"), /*#__PURE__*/React.createElement("p", null, "On this page you can find locations created by other users! filter results with a search"), /*#__PURE__*/React.createElement("form", {
+    id: "searchForm",
+    onSubmit: searchLocation,
+    name: "searchForm",
+    action: "/search",
+    method: "GET",
+    className: "searchForm"
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "nameSearch"
+  }, "Search By Name: "), /*#__PURE__*/React.createElement("input", {
+    id: "nameSearch",
+    type: "text",
+    name: "nameSearch"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "countrySearch"
+  }, "Search by Country: "), /*#__PURE__*/React.createElement("input", {
+    id: "countrySearch",
+    type: "text",
+    name: "countrySearch"
+  }), /*#__PURE__*/React.createElement("input", {
+    type: "hidden",
+    name: "_csrf",
+    value: props.csrf
+  })));
+};
+
 var LocationList = function LocationList(props) {
   console.log(props);
 
@@ -99,7 +142,7 @@ var LocationList = function LocationList(props) {
   }, locationNodes);
 };
 
-var loadLocationsFormServer = function loadLocationsFormServer(csrf) {
+var loadLocationsFromServer = function loadLocationsFromServer(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
     csrf: csrf
   }), document.querySelector("#mapContainer"));
@@ -114,10 +157,13 @@ var loadLocationsFormServer = function loadLocationsFormServer(csrf) {
 };
 
 var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
+  ReactDOM.render( /*#__PURE__*/React.createElement("locationSearch", {
+    csrf: csrf
+  }), document.querySelector("#mapContainer"));
   sendAjax('GET', '/getAllLocations', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
-    }), document.querySelector("#locations"));
+    }), document.querySelector("#mapContainer"));
   });
 };
 
@@ -126,7 +172,7 @@ var setup = function setup(csrf) {
   var allButton = document.querySelector("#allButton");
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
-    loadLocationsFormServer(csrf);
+    loadLocationsFromServer(csrf);
     return false;
   });
   allButton.addEventListener("click", function (e) {
@@ -134,6 +180,7 @@ var setup = function setup(csrf) {
     loadAllLocationsFromServer(csrf);
     return false;
   });
+  loadLocationsFormServer(csrf);
 };
 
 var getToken = function getToken() {

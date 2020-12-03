@@ -9,9 +9,24 @@ const handleLocation = (e) => {
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
         loadLocationsFormServer();
     });
-    console.log($("#locationForm").attr("action"));
+    //console.log($("#locationForm").attr("action"));
     return false;
 };
+
+const searchLocation = (e) => {
+    e.preventDefault();
+
+    if($("#nameSearch").val() != '' || $("#countrySearch").val() != ''){
+        handleError("a country or a name are needed to search");
+        return false;
+    }
+
+    sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
+        loadAllLocationsFormServer();
+    });
+    console.log($("#locationForm").serialize());
+    return false;
+}
 
 const MapForm = (props) => {
     return (
@@ -44,6 +59,27 @@ const MapForm = (props) => {
     
     );
 };
+
+const locationSearch = (props) => {
+    <div>
+        <h1>Locations</h1>
+        <p>On this page you can find locations created by other users! filter results with a search</p>
+        <form id="searchForm" 
+            onSubmit={searchLocation} 
+            name="searchForm" 
+            action="/search"  
+            method="GET"
+            className="searchForm">
+
+        <label htmlFor="nameSearch">Search By Name: </label>
+        <input id="nameSearch" type="text" name="nameSearch" />
+        <label htmlFor="countrySearch">Search by Country: </label>
+        <input id="countrySearch" type="text" name="countrySearch" />
+        <input type="hidden" name="_csrf" value={props.csrf} />
+            </form>
+
+     </div>
+}
 
 
 
@@ -82,7 +118,7 @@ const LocationList = function(props) {
 
     
 
-const loadLocationsFormServer = (csrf) => {
+const loadLocationsFromServer = (csrf) => {
 
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
@@ -99,9 +135,13 @@ const loadLocationsFormServer = (csrf) => {
 };
 
 const loadAllLocationsFromServer = (csrf) => {
+
+ReactDOM.render(
+    <locationSearch csrf={csrf} />, document.querySelector("#mapContainer")
+);
     sendAjax('GET', '/getAllLocations', null, (data) => {
         ReactDOM.render(
-            <LocationList locations={data.locations} />, document.querySelector("#locations")
+            <LocationList locations={data.locations} />, document.querySelector("#mapContainer")
         )
     })
 }
@@ -112,7 +152,7 @@ const setup = function(csrf) {
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
-        loadLocationsFormServer(csrf);
+        loadLocationsFromServer(csrf);
         return false;
     });
 
@@ -121,6 +161,8 @@ const setup = function(csrf) {
         loadAllLocationsFromServer(csrf);
         return false;
     })
+
+    loadLocationsFormServer(csrf);
 };
 
 const getToken = () => {

@@ -73,7 +73,12 @@ const getAllLocations = (request, response) => {
   });
 }
 
+const searchLocation = (request, response) => {
+    console.log(request.body.name);
+}
+
 module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
 module.exports.getAllLocations = getAllLocations;
+module.exports.searchLocation = searchLocation;
 module.exports.mapPage = mapPage;
