@@ -16,10 +16,7 @@ const handleLocation = (e) => {
 const searchLocation = (e) => {
     e.preventDefault();
 
-    if($("#nameSearch").val() != '' || $("#countrySearch").val() != ''){
-        handleError("a country or a name are needed to search");
-        return false;
-    }
+     //make sure to return relevant search data later
 
     sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
         loadAllLocationsFormServer();
