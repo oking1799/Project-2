@@ -4,7 +4,7 @@ const handleLogin = (e) => {
     
 
     if($("#user").val() == '' || $("#pass").val() == ''){
-        handleError("RAWR! Username or password is empty");
+        handleError('Username or password is empty");
         return false;
     }
 
