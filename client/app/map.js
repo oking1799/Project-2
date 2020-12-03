@@ -39,8 +39,9 @@ const MapForm = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
-    
+   
     </div>
+    
     );
 };
 
@@ -51,7 +52,7 @@ const LocationList = function(props) {
     if(props.locations.length === 0){
         return (
             <div className="locationList">
-                <h3 className="noLocation">No Locations yet sucka</h3>
+                <h3 className="noLocation">No Locations yet</h3>
             </div>
         );
     }
@@ -77,7 +78,16 @@ const LocationList = function(props) {
     );
 };
 
+function initMap() {
+    console.log("making map...");
+    let uluru = {lat: -25.344, lng: 131.036};
+    // The map, centered at Uluru
+    map = new google.maps.Map(
+        document.querySelector('#map'), {zoom: 4, center: uluru});
+        
+    }
 
+    
 
 const loadLocationsFormServer = () => {
     sendAjax('GET', '/getLocations', null, (data) => {
