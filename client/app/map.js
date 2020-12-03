@@ -60,7 +60,7 @@ const MapForm = (props) => {
     );
 };
 
-const locationSearch = (props) => {
+const LocationSearch = (props) => {
     <div>
         <h1>Locations</h1>
         <p>On this page you can find locations created by other users! filter results with a search</p>
@@ -137,7 +137,7 @@ const loadLocationsFromServer = (csrf) => {
 const loadAllLocationsFromServer = (csrf) => {
 
 ReactDOM.render(
-    <locationSearch csrf={csrf} />, document.querySelector("#mapContainer")
+    <LocationSearch csrf={csrf} />, document.querySelector("#mapContainer")
 );
     sendAjax('GET', '/getAllLocations', null, (data) => {
         ReactDOM.render(
