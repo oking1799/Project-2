@@ -40,7 +40,7 @@ var MapForm = function MapForm(props) {
   }, "description: "), /*#__PURE__*/React.createElement("input", {
     id: "descriptionField",
     type: "float",
-    name: "longitude"
+    name: "description"
   }), /*#__PURE__*/React.createElement("label", {
     htmlFor: "rating"
   }, "Rating "), /*#__PURE__*/React.createElement("input", {

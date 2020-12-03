@@ -31,7 +31,7 @@ const MapForm = (props) => {
         <label htmlFor="country">country: </label>
         <input id="countryField" type="text" name="country" />
         <label htmlFor="description">description: </label>
-        <input id="descriptionField" type="float" name="longitude" />
+        <input id="descriptionField" type="float" name="description" />
         <label htmlFor="rating">Rating </label>
         <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" />
         <label htmlFor="review">Review </label>
