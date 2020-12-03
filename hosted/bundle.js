@@ -100,6 +100,12 @@ var LocationList = function LocationList(props) {
 };
 
 var loadLocationsFormServer = function loadLocationsFormServer() {
+  ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
+    csrf: csrf
+  }), document.querySelector("#mapContainer"));
+  ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
+    locations: []
+  }), document.querySelector("#locations"));
   sendAjax('GET', '/getLocations', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
@@ -107,14 +113,27 @@ var loadLocationsFormServer = function loadLocationsFormServer() {
   });
 };
 
+var loadAllLocationsFromServer = function loadAllLocationsFromServer() {
+  sendAjax('GET', '/getAllLocations', null, function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
+      locations: data.locations
+    }), document.querySelector("#locations"));
+  });
+};
+
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
-    csrf: csrf
-  }), document.querySelector("#mapContainer"));
-  ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
-    locations: []
-  }), document.querySelector("#locations"));
-  loadLocationsFormServer();
+  var makeButton = document.querySelector("#makeButton");
+  var allButton = document.querySelector("#allButton");
+  makeButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    loadLocationsFormServer(csrfToken);
+    return false;
+  });
+  allButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    loadAllLocationsFromServer(csrf);
+    return false;
+  });
 };
 
 var getToken = function getToken() {
