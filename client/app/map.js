@@ -78,7 +78,15 @@ const LocationList = function(props) {
     );
 };
 
-
+function initMap() {
+    let map
+  console.log("making map...");
+  let uluru = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  map = new google.maps.Map(
+      document.getElementById('mapContainer'), {zoom: 4, center: uluru});
+      console.log("map created: " + map.zoom);
+  }
 
     
 
