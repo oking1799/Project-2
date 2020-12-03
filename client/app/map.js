@@ -77,6 +77,7 @@ const LocationSearch = (props) => {
         <label htmlFor="countrySearch">Search by Country: </label>
         <input id="countrySearch" type="text" name="countrySearch" />
         <input type="hidden" name="_csrf" value={props.csrf} />
+        <input className="searchSubmit" type="submit" value="search Location" />
             </form>
 
      </div>

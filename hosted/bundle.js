@@ -106,6 +106,10 @@ var LocationSearch = function LocationSearch(props) {
     type: "hidden",
     name: "_csrf",
     value: props.csrf
+  }), /*#__PURE__*/React.createElement("input", {
+    className: "searchSubmit",
+    type: "submit",
+    value: "search Location"
   })));
 };
 
