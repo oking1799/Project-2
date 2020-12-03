@@ -14,15 +14,15 @@ const mapPage = (req, res) => {
 };
 
 const makeLocation = (req, res) => {
-  if (!req.body.name || !req.body.latitude || !req.body.longitude) {
-    return res.status(400).json({ error: 'A location name, latitude and longitude are required' });
+  if (!req.body.name || !req.body.country) {
+    return res.status(400).json({ error: 'A location name and country' });
   }
 
 
   const locationData = {
     name: req.body.name,
-    latitude: req.body.latitude,
-    longitude: req.body.longitude,
+    country: req.body.country,
+    description: req.body.description,
     rating: req.body.rating,
     review: req.body.review,
     owner: req.session.account._id,

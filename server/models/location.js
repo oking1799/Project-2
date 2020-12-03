@@ -16,14 +16,15 @@ const LocationSchema = new mongoose.Schema({
     set: setName,
   },
 
-  latitude: {
-    type: Number,
+  country: {
+    type: String,
     required: true,
+    trim: true,
   },
 
-  longitude: {
-    type: Number,
-    required: true,
+  description: {
+    type: string,
+    trim: true,
   },
 
   rating: {
@@ -54,8 +55,8 @@ const LocationSchema = new mongoose.Schema({
 
 LocationSchema.statics.toAPI = (doc) => ({
   name: doc.name,
-  latitude: doc.latitude,
-  longitude: doc.longitude,
+  country: doc.country,
+  description: doc.description,
   rating: doc.rating,
   review: doc.review,
 });
@@ -65,7 +66,7 @@ LocationSchema.statics.findByOwner = (ownerID, callback) => {
     owner: convertId(ownerID),
   };
 
-  return LocationModel.find(search).select('name latitude longitude rating review').lean().exec(callback);
+  return LocationModel.find(search).select('name country description rating review').lean().exec(callback);
 };
 
 LocationModel = mongoose.model('Location', LocationSchema);

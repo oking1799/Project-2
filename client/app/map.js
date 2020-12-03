@@ -1,8 +1,8 @@
 const handleLocation = (e) => {
     e.preventDefault();
 
-    if($("#nameField").val() == '' || $("#latitudeField").val() == '' || $("#longitudeField").val() == ''){
-        handleError("Lat Lng and Name all needed");
+    if($("#nameField").val() == '' || $("#countryField").val() == ''){
+        handleError("a name and a country are needed");
         return false;
     }
 
@@ -28,10 +28,10 @@ const MapForm = (props) => {
 
         <label htmlFor="locationName">name: </label>
         <input id="nameField" type="text" name="name" />
-        <label htmlFor="latitide">Latitude: </label>
-        <input id="latitudeField" type="float" name="latitude" />
-        <label htmlFor="longitude">Longitude </label>
-        <input id="longitudeField" type="float" name="longitude" />
+        <label htmlFor="country">country: </label>
+        <input id="countryField" type="text" name="country" />
+        <label htmlFor="description">description: </label>
+        <input id="descriptionField" type="float" name="longitude" />
         <label htmlFor="rating">Rating </label>
         <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" />
         <label htmlFor="review">Review </label>
@@ -60,17 +60,16 @@ const LocationList = function(props) {
     const locationNodes = props.locations.map(function(location) {
         
         return (
-            <div>
-                <h2>Your Locations</h2>
+           
            <div key={location._id} className="location">
                
                <h3 className="locationName"> Name: {location.name} </h3>
-               <h3 className="locationLat"> Lat: {location.latitude} </h3>
-               <h3 className="locationLng"> Lng: {location.longitude} </h3>
+               <h3 className="locationCountry"> Country: {location.country} </h3>
+               <h3 className="locationDescription"> description: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
             </div>
-            </div>
+            
         );
     });
 

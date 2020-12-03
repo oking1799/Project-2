@@ -3,8 +3,8 @@
 var handleLocation = function handleLocation(e) {
   e.preventDefault();
 
-  if ($("#nameField").val() == '' || $("#latitudeField").val() == '' || $("#longitudeField").val() == '') {
-    handleError("Lat Lng and Name all needed");
+  if ($("#nameField").val() == '' || $("#countryField").val() == '') {
+    handleError("a name and a country are needed");
     return false;
   }
 
@@ -16,9 +16,7 @@ var handleLocation = function handleLocation(e) {
 };
 
 var MapForm = function MapForm(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Map Marker API"), /*#__PURE__*/React.createElement("div", {
-    id: "map"
-  }), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Location Ratings"), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
     onSubmit: handleLocation,
     name: "locationForm",
@@ -32,15 +30,15 @@ var MapForm = function MapForm(props) {
     type: "text",
     name: "name"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "latitide"
-  }, "Latitude: "), /*#__PURE__*/React.createElement("input", {
-    id: "latitudeField",
-    type: "float",
-    name: "latitude"
+    htmlFor: "country"
+  }, "country: "), /*#__PURE__*/React.createElement("input", {
+    id: "countryField",
+    type: "text",
+    name: "country"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "longitude"
-  }, "Longitude "), /*#__PURE__*/React.createElement("input", {
-    id: "longitudeField",
+    htmlFor: "description"
+  }, "description: "), /*#__PURE__*/React.createElement("input", {
+    id: "descriptionField",
     type: "float",
     name: "longitude"
   }), /*#__PURE__*/React.createElement("label", {
@@ -87,10 +85,10 @@ var LocationList = function LocationList(props) {
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "locationLat"
-    }, " Lat: ", location.latitude, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "locationLng"
-    }, " Lng: ", location.longitude, " "), /*#__PURE__*/React.createElement("h3", {
+      className: "locationCountry"
+    }, " Country: ", location.country, " "), /*#__PURE__*/React.createElement("h3", {
+      className: "locationDescription"
+    }, " description: ", location.description, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationRating"
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationReview"
@@ -100,20 +98,6 @@ var LocationList = function LocationList(props) {
     className: "locationList"
   }, locationNodes);
 };
-
-function initMap() {
-  var map;
-  console.log("making map...");
-  var uluru = {
-    lat: -25.344,
-    lng: 131.036
-  }; // The map, centered at Uluru
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-}
 
 var loadLocationsFormServer = function loadLocationsFormServer() {
   sendAjax('GET', '/getLocations', null, function (data) {
