@@ -16,9 +16,9 @@ const handleLocation = (e) => {
 const MapForm = (props) => {
     return (
         <div>
-        <h1>Map Marker API</h1>
+        <h1>Location Ratings</h1>
         
-    <div id='map'></div>
+    
     <form id="locationForm" 
             onSubmit={handleLocation} 
             name="locationForm" 
@@ -60,6 +60,8 @@ const LocationList = function(props) {
     const locationNodes = props.locations.map(function(location) {
         
         return (
+            <div>
+                <h2>Your Locations</h2>
            <div key={location._id} className="location">
                
                <h3 className="locationName"> Name: {location.name} </h3>
@@ -67,6 +69,7 @@ const LocationList = function(props) {
                <h3 className="locationLng"> Lng: {location.longitude} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
+            </div>
             </div>
         );
     });
@@ -77,16 +80,6 @@ const LocationList = function(props) {
         </div>
     );
 };
-
-function initMap() {
-    let map
-  console.log("making map...");
-  let uluru = {lat: -25.344, lng: 131.036};
-  // The map, centered at Uluru
-  map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-     
-  }
 
     
 
