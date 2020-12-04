@@ -79,9 +79,9 @@ const searchLocation = (request, response) => Location.LocationModel.find({ name
     console.log(err);
     return response.status(400).json({ message: request });
   }
-  searchedLocations = response.json({ locations: docs });
+  //searchedLocations = response.json({ locations: docs });
   console.log(`searched locations returned: ${docs}`);
-  return searchedLocations;
+  return response.json({ locations: docs });
 });
 
 //const searchedLocation = (request, response) => searchedLocations;
