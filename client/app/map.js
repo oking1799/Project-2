@@ -70,9 +70,9 @@ const LocationSearch = (props) => {
             className="searchForm">
 
         <label htmlFor="nameSearch">Search By Name: </label>
-        <input id="nameSearch" type="text" name="nameSearch" />
+        <input id="nameSearch" type="text" name="name" />
         <label htmlFor="countrySearch">Search by Country: </label>
-        <input id="countrySearch" type="text" name="countrySearch" />
+        <input id="countrySearch" type="text" name="country" />
         <input className="searchSubmit" type="submit" value="search Location" />
             </form>
 

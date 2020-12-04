@@ -90,13 +90,13 @@ var LocationSearch = function LocationSearch(props) {
   }, "Search By Name: "), /*#__PURE__*/React.createElement("input", {
     id: "nameSearch",
     type: "text",
-    name: "nameSearch"
+    name: "name"
   }), /*#__PURE__*/React.createElement("label", {
     htmlFor: "countrySearch"
   }, "Search by Country: "), /*#__PURE__*/React.createElement("input", {
     id: "countrySearch",
     type: "text",
-    name: "countrySearch"
+    name: "country"
   }), /*#__PURE__*/React.createElement("input", {
     className: "searchSubmit",
     type: "submit",
@@ -216,5 +216,6 @@ var sendAjax = function sendAjax(type, action, data, success) {
       var messageObj = JSON.parse(xhr.responseText);
       handleError(messageObj.error);
     }
-  }); //console.log("ajax Sent " + action);
+  });
+  console.log("ajax Sent " + action);
 };

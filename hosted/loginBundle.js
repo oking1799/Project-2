@@ -163,5 +163,6 @@ var sendAjax = function sendAjax(type, action, data, success) {
       var messageObj = JSON.parse(xhr.responseText);
       handleError(messageObj.error);
     }
-  }); //console.log("ajax Sent " + action);
+  });
+  console.log("ajax Sent " + action);
 };
