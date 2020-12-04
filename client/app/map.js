@@ -9,7 +9,7 @@ const handleLocation = (e) => {
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
         loadLocationsFromServer();
     });
-    console.log("fart ass");
+    console.log($("#locationForm").serialize());
     return false;
 };
 
