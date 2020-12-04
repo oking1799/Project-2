@@ -80,7 +80,7 @@ const searchLocation = (request, response) => Location.LocationModel.find({ name
     return response.status(400).json({ error: 'Error Occured' });
   }
   searchedLocations = response.json({ locations: docs });
-  return response.json({ locations: docs });
+  return response.status(200).json({ error: 'Ok Request' });;
 });
 
 const getSearchLocation = () => searchedLocations;
