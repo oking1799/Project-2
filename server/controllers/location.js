@@ -71,11 +71,11 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
 });
 
 const searchLocation = (request, response) => Location.LocationModel.find({ name: request.body.name }, (err, docs) => {
-  console.dir(request.body);
+  console.dir(request);
 
-  if (err) {
+  if (!err) {
     console.log(err);
-    return response.status(400).json({ error: 'Error Occured' });
+    return response.status(400).json({ message: request });
   }
 
   return response.json({ locations: docs });
