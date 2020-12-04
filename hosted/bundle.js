@@ -18,7 +18,7 @@ var handleLocation = function handleLocation(e) {
 var searchLocation = function searchLocation(e) {
   e.preventDefault(); //make sure to return relevant search data later
 
-  console.log("fart ass");
+  console.log($("#searchForm").serialize());
   sendAjax('POST', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
     loadSearchedLocations();
   });
