@@ -73,7 +73,7 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
 const searchLocation = (request, response) => Location.LocationModel.find({ name: request.body.name }, (err, docs) => {
   console.dir(request);
 
-  if (!err) {
+  if (err) {
     console.log(err);
     return response.status(400).json({ message: request });
   }
