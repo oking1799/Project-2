@@ -75,7 +75,7 @@ const searchLocation = (request, response) => Location.LocationModel.find({ name
     console.log(err);
     return response.status(400).json({ error: 'Error Occured' });
   }
-
+  console.log(request.body);
   return response.json({ locations: docs });
 });
 
