@@ -8,8 +8,10 @@ var handleLocation = function handleLocation(e) {
     return false;
   }
 
-  sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
-    loadLocationsFromServer();
+  sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
+      locations: data.locations
+    }), document.querySelector("#locations"));
   });
   console.log($("#locationForm").serialize());
   return false;
@@ -216,4 +218,5 @@ var sendAjax = function sendAjax(type, action, data, success) {
     }
   });
   console.log("ajax Sent " + data);
+  console.log("Success!" + success);
 };

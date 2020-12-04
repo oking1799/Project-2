@@ -165,4 +165,5 @@ var sendAjax = function sendAjax(type, action, data, success) {
     }
   });
   console.log("ajax Sent " + data);
+  console.log("Success!" + success);
 };

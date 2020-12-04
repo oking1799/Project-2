@@ -6,8 +6,10 @@ const handleLocation = (e) => {
         return false;
     }
 
-    sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
-        loadLocationsFromServer();
+    sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), (data) => {
+        ReactDOM.render(
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        );
     });
     console.log($("#locationForm").serialize());
     return false;
