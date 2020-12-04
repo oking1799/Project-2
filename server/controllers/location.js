@@ -80,13 +80,11 @@ const searchLocation = (request, response) => Location.LocationModel.find({ name
     return response.status(400).json({ message: request });
   }
   searchedLocations = response.json({ locations: docs });
-  console.log(`searched locations returned: ${searchedLocations}`);
+  console.log(`searched locations returned: ${JSON.stringify(searchedLocations)}`);
   return searchedLocations;
 });
 
-const searchedLocation = (request, response) => {
-  return searchedLocations;
-};
+const searchedLocation = (request, response) => searchedLocations;
 
 
 module.exports.make = makeLocation;
