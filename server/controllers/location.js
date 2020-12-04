@@ -72,14 +72,9 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
   return response.json({ locations: docs });
 });
 
-const searchLocation = (request, response) => {
-  searchQuery = request.body.name;
-  console.log("Searched Term " + searchQuery);
-  return searchQuery;
-};
 
 
-const searchedLocation = (request, response) => Location.LocationModel.find({ name: "Chipotle" }, (err, docs) => {
+const searchedLocation = (request, response) => Location.LocationModel.find({ name: request.query.name }, (err, docs) => {
   
   console.log(`request is:${request.query.name}`);
   console.log(`request:${request}`);
@@ -96,6 +91,6 @@ const searchedLocation = (request, response) => Location.LocationModel.find({ na
 module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
 module.exports.getAllLocations = getAllLocations;
-module.exports.searchLocation = searchLocation;
+//module.exports.searchLocation = searchLocation;
 module.exports.getSearched = searchedLocation;
 module.exports.mapPage = mapPage;
