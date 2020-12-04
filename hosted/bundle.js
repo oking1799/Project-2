@@ -10,8 +10,8 @@ var handleLocation = function handleLocation(e) {
 
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
     loadLocationsFromServer();
-  }); //console.log($("#locationForm").attr("action"));
-
+  });
+  console.log($("#locationForm").attr("action"));
   return false;
 };
 
@@ -19,7 +19,7 @@ var searchLocation = function searchLocation(e) {
   e.preventDefault(); //make sure to return relevant search data later
 
   sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
-    loadAllLocationsFromServer();
+    loadSearchedLocations();
   });
   console.log($("#locationForm").serialize());
   return false;
@@ -98,10 +98,6 @@ var LocationSearch = function LocationSearch(props) {
     type: "text",
     name: "countrySearch"
   }), /*#__PURE__*/React.createElement("input", {
-    type: "hidden",
-    name: "_csrf",
-    value: props.csrf
-  }), /*#__PURE__*/React.createElement("input", {
     className: "searchSubmit",
     type: "submit",
     value: "search Location"
@@ -159,6 +155,14 @@ var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
     csrf: csrf
   }), document.querySelector("#mapContainer"));
   sendAjax('GET', '/getAllLocations', null, function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
+      locations: data.locations
+    }), document.querySelector("#locations"));
+  });
+};
+
+var loadSearchedLocations = function loadSearchedLocations() {
+  sendAjax('GET', '/search', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
     }), document.querySelector("#locations"));

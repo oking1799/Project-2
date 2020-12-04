@@ -9,7 +9,7 @@ const handleLocation = (e) => {
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
         loadLocationsFromServer();
     });
-    //console.log($("#locationForm").attr("action"));
+    console.log($("#locationForm").attr("action"));
     return false;
 };
 
@@ -19,7 +19,7 @@ const searchLocation = (e) => {
      //make sure to return relevant search data later
 
     sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
-        loadAllLocationsFromServer();
+        loadSearchedLocations();
     });
     console.log($("#locationForm").serialize());
     return false;
@@ -73,7 +73,6 @@ const LocationSearch = (props) => {
         <input id="nameSearch" type="text" name="nameSearch" />
         <label htmlFor="countrySearch">Search by Country: </label>
         <input id="countrySearch" type="text" name="countrySearch" />
-        <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="searchSubmit" type="submit" value="search Location" />
             </form>
 
@@ -139,6 +138,14 @@ ReactDOM.render(
     <LocationSearch csrf={csrf} />, document.querySelector("#mapContainer")
 );
     sendAjax('GET', '/getAllLocations', null, (data) => {
+        ReactDOM.render(
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        );
+    });
+}
+
+const loadSearchedLocations = () => {
+    sendAjax('GET', '/search', null, (data) => {
         ReactDOM.render(
             <LocationList locations={data.locations} />, document.querySelector("#locations")
         );
