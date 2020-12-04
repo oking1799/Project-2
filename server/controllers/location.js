@@ -80,18 +80,13 @@ const searchLocation = (request, response) => Location.LocationModel.find({ name
     return response.status(400).json({ message: request });
   }
   searchedLocations = response.json({ locations: docs });
-  console.log("searched locations returned: " + searchedLocations);
+  console.log(`searched locations returned: ${searchedLocations}`);
   return searchedLocations;
 });
 
 const searchedLocation = (request, response) => {
-  if (err) {
-    console.log(err);
-    return response.status(400).json({ error: 'An error occured' });
-  }
-
   return searchedLocations;
-}
+};
 
 
 module.exports.make = makeLocation;
