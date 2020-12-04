@@ -53,7 +53,7 @@ const MapForm = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
-   
+   <h2 id="userLocations">Your Locations: </h2>
     </div>
     
     );
@@ -81,7 +81,18 @@ const LocationSearch = (props) => {
     );
 }
 
+const LocationPage = (props) => {
+    return(
+        <div>
+        <h1 id="locationTitle">{ props.name }</h1>
+        <h2 id="countryTitle">{ props.country}</h2>
+        <h3 id="ratingTitle">{ props.rating }/5</h3>
+        <p id="descriptionTitle">{ props.description }</p>
+        <p id="reviewTitle">{ props.review }</p>
+        </div>
 
+    );
+}
 
 const LocationList = function(props) {
     console.log(props);
@@ -153,9 +164,19 @@ const loadSearchedLocations = () => {
     });
 }
 
+const renderLocationPage = (div) => {
+
+    let element = div.getElementById("name");
+    console.log(element);
+    sendAjax('GET', '/search', element.serialize(), (data) => {
+        <LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
+    });
+}
+
 const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
+    const locationBlock = document.querySelectorAll("#location");
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -168,6 +189,12 @@ const setup = function(csrf) {
         loadAllLocationsFromServer(csrf);
         return false;
     })
+
+    locationBlock.addEventListener("click", (e) => {
+        renderLocationPage(locationBlock);
+    })
+
+    
 
     loadLocationsFromServer(csrf);
 };

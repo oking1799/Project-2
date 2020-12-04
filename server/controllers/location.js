@@ -2,7 +2,7 @@ const models = require('../models');
 
 const { Location } = models;
 
-//let searchQuery;
+// let searchQuery;
 
 const mapPage = (req, res) => {
   Location.LocationModel.findByOwner(req.session.account._id, (err, docs) => {

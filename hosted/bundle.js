@@ -76,7 +76,9 @@ var MapForm = function MapForm(props) {
     className: "makeLocationSubmit",
     type: "submit",
     value: "make Location"
-  })));
+  })), /*#__PURE__*/React.createElement("h2", {
+    id: "userLocations"
+  }, "Your Locations: "));
 };
 
 var LocationSearch = function LocationSearch(props) {
@@ -102,6 +104,20 @@ var LocationSearch = function LocationSearch(props) {
     type: "submit",
     value: "search Location"
   })));
+};
+
+var LocationPage = function LocationPage(props) {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    id: "locationTitle"
+  }, props.name), /*#__PURE__*/React.createElement("h2", {
+    id: "countryTitle"
+  }, props.country), /*#__PURE__*/React.createElement("h3", {
+    id: "ratingTitle"
+  }, props.rating, "/5"), /*#__PURE__*/React.createElement("p", {
+    id: "descriptionTitle"
+  }, props.description), /*#__PURE__*/React.createElement("p", {
+    id: "reviewTitle"
+  }, props.review));
 };
 
 var LocationList = function LocationList(props) {
@@ -169,9 +185,21 @@ var loadSearchedLocations = function loadSearchedLocations() {
   });
 };
 
+var renderLocationPage = function renderLocationPage(div) {
+  var element = div.getElementById("name");
+  console.log(element);
+  sendAjax('GET', '/search', element.serialize(), function (data) {
+    /*#__PURE__*/
+    React.createElement(LocationPage, {
+      locations: data.locations
+    }), document.querySelector("#mapContainer");
+  });
+};
+
 var setup = function setup(csrf) {
   var makeButton = document.querySelector("#makeButton");
   var allButton = document.querySelector("#allButton");
+  var locationBlock = document.querySelectorAll("#location");
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
     loadLocationsFromServer(csrf);
@@ -181,6 +209,9 @@ var setup = function setup(csrf) {
     e.preventDefault();
     loadAllLocationsFromServer(csrf);
     return false;
+  });
+  locationBlock.addEventListener("click", function (e) {
+    renderLocationPage(locationBlock);
   });
   loadLocationsFromServer(csrf);
 };
