@@ -70,8 +70,7 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
   return response.json({ locations: docs });
 });
 
-const searchLocation = (request, response) => 
-Location.LocationModel.find({ name: request.body.name, country: request.body.country }, (err, docs) => {
+const searchLocation = (request, response) => Location.LocationModel.find({ name: request.body.name, country: request.body.country }, (err, docs) => {
   if (err) {
     console.log(err);
     return response.status(400).json({ error: 'Error Occured' });
