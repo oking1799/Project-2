@@ -91,12 +91,6 @@ var LocationSearch = function LocationSearch(props) {
     id: "nameSearch",
     type: "text",
     name: "name"
-  }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "countrySearch"
-  }, "Search by Country: "), /*#__PURE__*/React.createElement("input", {
-    id: "countrySearch",
-    type: "text",
-    name: "country"
   }), /*#__PURE__*/React.createElement("input", {
     className: "searchSubmit",
     type: "submit",
