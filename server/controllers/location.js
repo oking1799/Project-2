@@ -74,7 +74,7 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
 
 const searchLocation = (request, response) => {
   searchQuery = request.body.name;
-  console.log(searchQuery);
+  console.log("Searched Term " + searchQuery);
   return searchQuery;
 };
 
