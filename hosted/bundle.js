@@ -125,7 +125,7 @@ var LocationList = function LocationList(props) {
       className: "locationCountry"
     }, " Country: ", location.country, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationDescription"
-    }, " description: ", location.description, " "), /*#__PURE__*/React.createElement("h3", {
+    }, " Reason For Visit: ", location.description, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationRating"
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationReview"
