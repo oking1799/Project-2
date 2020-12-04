@@ -17,7 +17,7 @@ const makeLocation = (req, res) => {
   if (!req.body.name || !req.body.country) {
     return res.status(400).json({ error: 'A location name and country are needed' });
   }
-
+  console.log("can yall here me?");
 
   const locationData = {
     name: req.body.name,
@@ -71,11 +71,13 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
 });
 
 const searchLocation = (request, response) => Location.LocationModel.find({ name: request.body.name, country: request.body.country }, (err, docs) => {
+  console.log(request.body);
+ 
   if (err) {
     console.log(err);
     return response.status(400).json({ error: 'Error Occured' });
   }
-  console.log(request.body);
+ 
   return response.json({ locations: docs });
 });
 
