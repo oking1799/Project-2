@@ -2,6 +2,8 @@ const models = require('../models');
 
 const { Location } = models;
 
+let searchedLocations;
+
 const mapPage = (req, res) => {
   Location.LocationModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
@@ -77,12 +79,17 @@ const searchLocation = (request, response) => Location.LocationModel.find({name:
     console.log(err);
     return response.status(400).json({ error: 'Error Occured' });
   }
- 
+  searchedLocations = response.json({ locations: docs });
   return response.json({ locations: docs });
 });
+
+const getSearchLocation = (request, response) => {
+    return searchedLocations;
+};
 
 module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
 module.exports.getAllLocations = getAllLocations;
 module.exports.searchLocation = searchLocation;
+module.exports.searchedLocations = getSearchLocation;
 module.exports.mapPage = mapPage;
