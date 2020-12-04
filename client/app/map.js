@@ -18,7 +18,7 @@ const searchLocation = (e) => {
 
      //make sure to return relevant search data later
      console.log($("#searchForm").serialize());
-    sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
+    sendAjax('POST', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
         loadSearchedLocations();
     });
     
@@ -66,7 +66,7 @@ const LocationSearch = (props) => {
             onSubmit={searchLocation} 
             name="searchForm" 
             action="/search"  
-            method="GET"
+            method="POST"
             className="searchForm">
 
         <label htmlFor="nameSearch">Search By Name: </label>
