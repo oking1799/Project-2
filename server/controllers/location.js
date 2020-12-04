@@ -66,11 +66,11 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
     console.log(err);
     return response.status(400).json({ error: 'An error occured' });
   }
-  console.log("wassup");
+  
   return response.json({ locations: docs });
 });
 
-const searchLocation = (request, response) => Location.LocationModel.find({name:request.body.name}, (err, docs) => {
+const searchLocation = (request, response) => Location.LocationModel.find({name:"WalMart"}, (err, docs) => {
   console.dir(request.body);
  
   if (err) {
