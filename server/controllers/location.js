@@ -71,7 +71,7 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
 });
 
 const searchLocation = (request, response) => Location.LocationModel.find({ name: request.name }, (err, docs) => {
-  console.dir(request.body);
+  console.dir(request.body.path);
 
   if (err) {
     console.log(err);
