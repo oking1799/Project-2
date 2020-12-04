@@ -176,7 +176,7 @@ const renderLocationPage = (div) => {
 const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
-    const locationBlock = document.querySelectorAll("#location");
+    const locationBlocks = document.querySelectorAll("#location");
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -189,10 +189,12 @@ const setup = function(csrf) {
         loadAllLocationsFromServer(csrf);
         return false;
     })
-
-    locationBlock.addEventListener("click", (e) => {
-        renderLocationPage(locationBlock);
-    })
+    locationBlocks.forEach(item => {
+        item.addEventListener("click", (e) => {
+            renderLocationPage(item);
+        })
+    });
+    
 
     
 
