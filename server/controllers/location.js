@@ -81,7 +81,7 @@ const searchLocation = (request, response) => {
 
 const searchedLocation = (request, response) => Location.LocationModel.find({ name: "Chipotle" }, (err, docs) => {
   
-  console.log(`request is:${JSON.stringify(request.body)}`);
+  console.log(`request is:${JSON.stringify(request)}`);
 
   if (err) {
     console.log(err);
