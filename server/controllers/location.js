@@ -79,8 +79,8 @@ const searchLocation = (request, response) => {
 };
 
 
-const searchedLocation = (request, response) => Location.LocationModel.find({ name: searchQuery }, (err, docs) => {
-  console.log("Seached Query: " + searchQuery);
+const searchedLocation = (request, response) => Location.LocationModel.find({ name: "Chipotle" }, (err, docs) => {
+  
   console.log(`request is:${JSON.stringify(request.body)}`);
 
   if (err) {

@@ -18,8 +18,10 @@ const searchLocation = (e) => {
 
      //make sure to return relevant search data later
      console.log($("#searchForm").serialize());
-    sendAjax('POST', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
-        loadSearchedLocations();
+    sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
+        ReactDOM.render(
+            <LocationList locations={data.locations} />, document.querySelector("#locations")
+        );
     });
     
     return false;
@@ -66,7 +68,7 @@ const LocationSearch = (props) => {
             onSubmit={searchLocation} 
             name="searchForm" 
             action="/search"  
-            method="POST"
+            method="GET"
             className="searchForm">
 
         <label htmlFor="nameSearch">Search By Name: </label>
