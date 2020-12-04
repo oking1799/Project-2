@@ -73,18 +73,20 @@ const getAllLocations = (request, response) => Location.LocationModel.find({}, (
 });
 
 const searchLocation = (request, response) => {
-  searchQuery = request.body.name
-}
+  searchQuery = request.body.name;
+  console.log(searchQuery);
+};
 
 
 const searchedLocation = (request, response) => Location.LocationModel.find({ name: searchQuery }, (err, docs) => {
+  console.log("Seached Query: " + searchQuery);
   console.log(`request is:${JSON.stringify(request.body)}`);
 
   if (err) {
     console.log(err);
     return response.status(400).json({ message: request });
   }
-  //searchedLocations = response.json({ locations: docs });
+  // searchedLocations = response.json({ locations: docs });
   console.log(`searched locations returned: ${docs}`);
   return response.json({ locations: docs });
 });
