@@ -9,7 +9,7 @@ const handleLocation = (e) => {
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function() {
         loadLocationsFromServer();
     });
-    console.log($("#locationForm").attr("action"));
+    console.log("fart ass");
     return false;
 };
 
@@ -17,11 +17,11 @@ const searchLocation = (e) => {
     e.preventDefault();
 
      //make sure to return relevant search data later
-
+     console.log("fart ass");
     sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
         loadSearchedLocations();
     });
-    console.log($("#locationForm").serialize());
+    
     return false;
 }
 
@@ -87,7 +87,7 @@ const LocationList = function(props) {
     if(props.locations.length === 0){
         return (
             <div className="locationList">
-                <h3 className="noLocation">No Locations yet</h3>
+                <h3 className="noLocation">No Locations found!</h3>
             </div>
         );
     }

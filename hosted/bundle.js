@@ -11,17 +11,17 @@ var handleLocation = function handleLocation(e) {
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function () {
     loadLocationsFromServer();
   });
-  console.log($("#locationForm").attr("action"));
+  console.log("fart ass");
   return false;
 };
 
 var searchLocation = function searchLocation(e) {
   e.preventDefault(); //make sure to return relevant search data later
 
+  console.log("fart ass");
   sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
     loadSearchedLocations();
   });
-  console.log($("#locationForm").serialize());
   return false;
 };
 
@@ -112,7 +112,7 @@ var LocationList = function LocationList(props) {
       className: "locationList"
     }, /*#__PURE__*/React.createElement("h3", {
       className: "noLocation"
-    }, "No Locations yet"));
+    }, "No Locations found!"));
   }
 
   var locationNodes = props.locations.map(function (location) {
