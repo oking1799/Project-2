@@ -12,7 +12,7 @@ const router = (app) => {
   app.get('/map', mid.requiresLogin, controllers.Location.mapPage);
   app.post('/map', mid.requiresLogin, controllers.Location.make);
   app.post('/search', mid.requiresLogin, controllers.Location.searchLocation);
-  //app.get('/search', mid.requiresLogin, controllers.Location.getSearched);
+  app.get('/search', mid.requiresLogin, controllers.Location.getSearched);
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
 

@@ -9,9 +9,7 @@ var handleLocation = function handleLocation(e) {
   }
 
   sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), function (data) {
-    ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
-      locations: data.locations
-    }), document.querySelector("#locations"));
+    loadSearchedLocations();
   });
   console.log($("#locationForm").serialize());
   return false;
