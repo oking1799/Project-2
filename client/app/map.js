@@ -18,7 +18,7 @@ const searchLocation = (e) => {
 
      //make sure to return relevant search data later
      console.log($("#searchForm").serialize());
-    sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function() {
+    sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), (data) => {
         ReactDOM.render(
             <LocationList locations={data.locations} />, document.querySelector("#locations")
         );

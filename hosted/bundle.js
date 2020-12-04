@@ -19,7 +19,7 @@ var searchLocation = function searchLocation(e) {
   e.preventDefault(); //make sure to return relevant search data later
 
   console.log($("#searchForm").serialize());
-  sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
+  sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
     }), document.querySelector("#locations"));
