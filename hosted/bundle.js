@@ -19,7 +19,7 @@ var searchLocation = function searchLocation(e) {
   e.preventDefault(); //make sure to return relevant search data later
 
   console.log("fart ass");
-  sendAjax('GET', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
+  sendAjax('POST', $("#searchForm").attr("action"), $("#searchForm").serialize(), function () {
     loadSearchedLocations();
   });
   return false;
@@ -83,7 +83,7 @@ var LocationSearch = function LocationSearch(props) {
     onSubmit: searchLocation,
     name: "searchForm",
     action: "/search",
-    method: "GET",
+    method: "POST",
     className: "searchForm"
   }, /*#__PURE__*/React.createElement("label", {
     htmlFor: "nameSearch"
