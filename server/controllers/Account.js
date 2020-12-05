@@ -70,6 +70,7 @@ const signup = (request, response) => {
     };
 
     const newAccount = new Account.AccountModel(accountData);
+    console.log("new account created: " + newAccount);
 
     const savePromise = newAccount.save();
 
@@ -120,7 +121,7 @@ const passwordChange = (request, response) => {
       .then((updatedDocument) => {
         if (updatedDocument) {
           console.log(`Successfully updated password! new password info: ${updatedDocument}`);
-          Account.AccountModel.toAPI(updatedDocument);
+          req.session.account = Account.AccountModel.toAPI(updatedDocument);
           return res.json({ redirect: '/login' });
         } else {
           console.log('No account with such username/password');
