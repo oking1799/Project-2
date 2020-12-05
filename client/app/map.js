@@ -177,6 +177,7 @@ const loadSearchedLocations = () => {
 const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
+    
     //const locationBlocks = document.querySelectorAll("#location");
     //console.log("locations " + locationBlocks);
 

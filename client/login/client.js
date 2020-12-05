@@ -37,6 +37,21 @@ const handleSignup = (e) => {
     return false;
 };
 
+const handlePassword = (e) => {
+    e.preventDefault();
+
+    if($("#user").val() == '' || $("#pass").val() == '' || $("#newPass").val() == '') {
+        handleError("All fields are required");
+        return false;
+    }
+
+    console.log("serialized:" + $("passwordForm").serialize());
+
+    sendAjax('POST', $("#passwordForm").attr("action"), $("#passwordForm").serialize(), redirect);
+
+    return false;
+}
+
 const LoginWindow = (props) => {
     return (
         <form id="loginForm" name="loginForm"
@@ -77,6 +92,27 @@ const SignupWindow = (props) => {
     ); 
 };
 
+const PasswordWindow = (props) => {
+    return (
+        <form id="passwordForm"
+                name="passwordForm"
+                onSubmit={handlePassword}
+                action="/changePass"
+                method="POST"
+                className="mainForm"
+        >
+        <label htmlFor="username">Username: </label>
+        <input id="user" type="text" name="username" placeholder="username"/>
+        <label htmlFor="pass">Current Password: </label>
+        <input id="pass" type="password" name="pass" placeholder="current password"/>
+        <label htmlFor="newPass">New Password: </label>
+        <input id="newPass" type="password" name="newPass" placeholder="enter new password"/>
+        <input type="hidden" name="_csrf" value={props.csrf} />
+        <input className="formSubmit" type="submit" value="Sign up" />
+    </form>
+    ); 
+};
+
 const createLoginWindow = (csrf) => {
     ReactDOM.render(
         <LoginWindow csrf={csrf} />,
@@ -91,9 +127,17 @@ const createSignupWindow = (csrf) => {
     );
 };
 
+const createPasswordWindow = (csrf) => {
+    ReactDOM.render(
+        <PasswordWindow csrf={csrf} />,
+        document.querySelector("#content")
+    );
+};
+
 const setup = (csrf) => {
     const loginButton = document.querySelector("#loginButton");
     const signupButton = document.querySelector("#signupButton");
+    const changePassButton = document.querySelector("#changePassButton");
 
     signupButton.addEventListener("click", (e) => {
         e.preventDefault();
