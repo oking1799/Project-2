@@ -53,7 +53,7 @@ const MapForm = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
     </form>
-   <h2 id="userLocations">Your Locations: </h2>
+   
     </div>
     
     );
@@ -177,6 +177,7 @@ const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
     const locationBlocks = document.querySelectorAll("#location");
+    console.log(locationBlocks);
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -192,6 +193,7 @@ const setup = function(csrf) {
     locationBlocks.forEach(item => {
         item.addEventListener("click", (e) => {
             renderLocationPage(item);
+            console.log(item);
         })
     });
     

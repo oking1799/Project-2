@@ -76,9 +76,7 @@ var MapForm = function MapForm(props) {
     className: "makeLocationSubmit",
     type: "submit",
     value: "make Location"
-  })), /*#__PURE__*/React.createElement("h2", {
-    id: "userLocations"
-  }, "Your Locations: "));
+  })));
 };
 
 var LocationSearch = function LocationSearch(props) {
@@ -200,6 +198,7 @@ var setup = function setup(csrf) {
   var makeButton = document.querySelector("#makeButton");
   var allButton = document.querySelector("#allButton");
   var locationBlocks = document.querySelectorAll("#location");
+  console.log(locationBlocks);
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
     loadLocationsFromServer(csrf);
@@ -213,6 +212,7 @@ var setup = function setup(csrf) {
   locationBlocks.forEach(function (item) {
     item.addEventListener("click", function (e) {
       renderLocationPage(item);
+      console.log(item);
     });
   });
   loadLocationsFromServer(csrf);
