@@ -126,7 +126,7 @@ var LocationList = function LocationList(props) {
     }, "No Locations found!"));
   }
 
-  var locationNodes = props.locations.map(function (location) {
+  var locationNodes = props.locations.slice(0).reverse().map(function (location) {
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
       className: "location"

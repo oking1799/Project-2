@@ -104,7 +104,8 @@ const LocationList = function(props) {
         );
     }
 
-    const locationNodes = props.locations.map(function(location) {
+    
+    const locationNodes = props.locations.slice(0).reverse().map(function(location) {
         
         return (
            
