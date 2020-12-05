@@ -114,11 +114,14 @@ const passwordChange = (request, response) => {
         return res.status(401).json({ error: 'Wrong Username or Password' });
       }
 
+     
+
     //if authenticated just search via username
      Account.AccountModel.findOneAndUpdate({ username: username }, { password: newPasswordHash.password }, { returnNewDocument: true })
       .then((updatedDocument) => {
         if (updatedDocument) {
           console.log(`Successfully updated password! new password info: ${updatedDocument}`);
+          req.session.account = Account.AccountModel.toAPI(updatedDocument);
           return res.json({ redirect: '/login' });
         } else {
           console.log('No account with such username/password');
