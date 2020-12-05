@@ -90,6 +90,44 @@ const signup = (request, response) => {
   });
 };
 
+const passwordChange = (request, response) => {
+  const req = request;
+  const res = response;
+
+  req.body.username = `${req.body.username}`;
+  req.body.pass = `${req.body.pass}`;
+  req.body.newPass = `${req.body.newPass}`;
+
+  if (!req.body.username || !req.body.pass || !req.body.newPass) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  return Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
+    const accountData = {
+      username: req.body.username,
+      salt,
+      password: hash,
+    };
+
+
+  return Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.password }, { password: req.body.newPass }, { returnNewDocument: true })
+  .then(updatedDocument => {
+    if(updatedDocument){
+      console.log(`Successfully updated password! new password info: ${updatedDocument}`);
+      res.json({ redirect: '/map' });
+    }else{
+      console.log("No account with such username/password");
+    }
+
+    return updatedDocument
+  })
+
+  .catch(err => console.log("Failed to find and update Document: " + err));
+
+  });
+}
+
+
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
