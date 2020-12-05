@@ -203,8 +203,8 @@ var setup = function setup(csrf) {
     return false;
   }); //for(const div of locationBlocks){
   // div.addEventListener('click', function(e){
-
-  renderLocationPage(div); //})
+  //renderLocationPage(div);
+  //})
   //}
 
   loadLocationsFromServer(csrf);

@@ -193,7 +193,7 @@ const setup = function(csrf) {
 
    //for(const div of locationBlocks){
       // div.addEventListener('click', function(e){
-           renderLocationPage(div);
+           //renderLocationPage(div);
        //})
     //}
     
