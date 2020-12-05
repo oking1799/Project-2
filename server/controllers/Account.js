@@ -95,37 +95,42 @@ const passwordChange = (request, response) => {
   const req = request;
   const res = response;
 
-  req.body.username = `${req.body.username}`;
-  req.body.pass = `${req.body.pass}`;
-  req.body.newPass = `${req.body.newPass}`;
+  const username = `${req.body.username}`;
+  const pass = `${req.body.pass}`;
+  const newPass = `${req.body.newPass}`;
 
   if (!req.body.username || !req.body.pass || !req.body.newPass) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  return Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
+  return Account.AccountModel.generateHash(newPass, (salt, hash) => {
     const newPasswordHash = {
+      salt,
       password: hash,
     };
 
+    Account.AccountModel.authenticate(username, pass, (err, account) => {  //authenticate the user
+      if(err || !account){
+        return res.status(401).json({ error: 'Wrong Username or Password' });
+      }
 
-     Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.pass }, { password: newPasswordHash.password }, { returnNewDocument: true })
+    //if authenticated just search via username
+     Account.AccountModel.findOneAndUpdate({ username: username }, { password: newPasswordHash.password }, { returnNewDocument: true })
       .then((updatedDocument) => {
         if (updatedDocument) {
           console.log(`Successfully updated password! new password info: ${updatedDocument}`);
-          res.json({ redirect: '/map' });
+          return res.json({ redirect: '/login' });
         } else {
           console.log('No account with such username/password');
           return res.status(404).json({ error: 'No Account Found' });
         }
-
-        //return updatedDocument;
       })
 
       .catch((err) => {
         console.log(`Failed to find and update Document: ${err}`);
         return res.status(400).json({ error: 'An error occurred' });
       });
+    });
   });
 };
 

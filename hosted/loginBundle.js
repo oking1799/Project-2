@@ -153,7 +153,7 @@ var PasswordWindow = function PasswordWindow(props) {
   }), /*#__PURE__*/React.createElement("input", {
     className: "formSubmit",
     type: "submit",
-    value: "Sign up"
+    value: "Change Password"
   }));
 };
 
