@@ -108,11 +108,11 @@ var Ads = function Ads() {
   return /*#__PURE__*/React.createElement("div", {
     id: "adImages"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/img/gloop.jpeg",
+    src: "/assets/img/gloop.jpg",
     alt: "Ad 1",
     className: "ad1"
   }), /*#__PURE__*/React.createElement("img", {
-    src: "/assets/img/gloop.jpeg",
+    src: "/assets/img/gloop.jpg",
     alt: "Ad 2",
     className: "ad2"
   }));

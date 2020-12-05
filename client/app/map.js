@@ -84,8 +84,8 @@ const LocationSearch = (props) => {
 const Ads = () => {
     return(
         <div id="adImages">
-        <img src="/assets/img/gloop.jpeg" alt="Ad 1" className="ad1" />
-        <img src="/assets/img/gloop.jpeg" alt="Ad 2" className="ad2" />
+        <img src="/assets/img/gloop.jpg" alt="Ad 1" className="ad1" />
+        <img src="/assets/img/gloop.jpg" alt="Ad 2" className="ad2" />
         </div>
     );
 }
