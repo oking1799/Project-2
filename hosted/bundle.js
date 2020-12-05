@@ -148,10 +148,16 @@ var LocationList = function LocationList(props) {
     }, "No Locations found!"));
   }
 
+  function handleClick(e, location) {
+    e.preventDefault();
+    console.log(location);
+  }
+
   var locationNodes = props.locations.slice(0).reverse().map(function (location) {
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
-      className: "location"
+      className: "location",
+      onclick: renderLocationPage(location)
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {

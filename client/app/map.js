@@ -29,6 +29,8 @@ const searchLocation = (e) => {
     return false;
 }
 
+
+
 const MapForm = (props) => {
     return (
         <div>
@@ -122,12 +124,17 @@ const LocationList = function(props) {
         );
     }
 
+    function handleClick(e, location){
+        e.preventDefault();
+        console.log(location);
+
+    }
     
     const locationNodes = props.locations.slice(0).reverse().map(function(location) {
         
         return (
            
-           <div key={location._id} className="location">
+           <div key={location._id} className="location" onclick={renderLocationPage(location)}>
                
                <h3 className="locationName"> Name: {location.name} </h3>
                <h3 className="locationCountry"> Country: {location.country} </h3>
@@ -211,6 +218,7 @@ const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
     const premiumButton = document.querySelector("#premiumButton");
+    
 
 
     makeButton.addEventListener("click", (e) => {
