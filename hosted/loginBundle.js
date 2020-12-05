@@ -189,6 +189,11 @@ var setup = function setup(csrf) {
     createLoginWindow(csrf);
     return false;
   });
+  changePassButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    createPasswordWindow(csrf);
+    return false;
+  });
   createLoginWindow(csrf);
 };
 

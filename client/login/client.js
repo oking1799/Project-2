@@ -151,6 +151,12 @@ const setup = (csrf) => {
         return false;
     });
 
+    changePassButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        createPasswordWindow(csrf);
+        return false;
+    });
+
     createLoginWindow(csrf);
 };
 
