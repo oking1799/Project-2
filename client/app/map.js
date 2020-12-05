@@ -7,7 +7,7 @@ const handleLocation = (e) => {
     }
 
     sendAjax('POST', $("#locationForm").attr("action"), $("#locationForm").serialize(), (data) => {
-        loadSearchedLocations();
+        loadLocationsFromServer();
     });
     console.log($("#locationForm").serialize());
     return false;
@@ -81,18 +81,18 @@ const LocationSearch = (props) => {
     );
 }
 
-const LocationPage = (props) => {
-    return(
-        <div>
-        <h1 id="locationTitle">{ props.name }</h1>
-        <h2 id="countryTitle">{ props.country}</h2>
-        <h3 id="ratingTitle">{ props.rating }/5</h3>
-        <p id="descriptionTitle">{ props.description }</p>
-        <p id="reviewTitle">{ props.review }</p>
-        </div>
+//const LocationPage = (props) => {
+    //return(
+        //<div>
+        //<h1 id="locationTitle">{ props.name }</h1>
+        //<h2 id="countryTitle">{ props.country}</h2>
+        //<h3 id="ratingTitle">{ props.rating }/5</h3>
+        //<p id="descriptionTitle">{ props.description }</p>
+        //<p id="reviewTitle">{ props.review }</p>
+        //</div>
 
-    );
-}
+    //);
+//}
 
 const LocationList = function(props) {
     console.log(props);
@@ -164,20 +164,20 @@ const loadSearchedLocations = () => {
     });
 }
 
-const renderLocationPage = (div) => {
+//const renderLocationPage = (div) => {
 
-    let element = div.getElementById("name");
-    console.log(element);
-    sendAjax('GET', '/search', element.serialize(), (data) => {
-        <LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
-    });
-}
+    //let element = div.getElementById("name");
+    //console.log(element);
+    //sendAjax('GET', '/search', element.serialize(), (data) => {
+        //<LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
+    //});
+//}
 
 const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
-    const locationBlocks = document.querySelectorAll("#location");
-    console.log("locations " + locationBlocks);
+    //const locationBlocks = document.querySelectorAll("#location");
+    //console.log("locations " + locationBlocks);
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -191,11 +191,11 @@ const setup = function(csrf) {
         return false;
     })
 
-   for(const div of locationBlocks){
-       div.addEventListener('click', function(e){
+   //for(const div of locationBlocks){
+      // div.addEventListener('click', function(e){
            renderLocationPage(div);
-       })
-    }
+       //})
+    //}
     
     
 
