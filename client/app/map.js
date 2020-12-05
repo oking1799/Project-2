@@ -1,3 +1,5 @@
+let isPremium = false;
+
 const handleLocation = (e) => {
     e.preventDefault();
 
@@ -160,10 +162,11 @@ const loadLocationsFromServer = (csrf) => {
             <LocationList locations={data.locations} />, document.querySelector("#locations")
         );
     });
-
-    ReactDOM.render(
-        <Ads />, document.querySelector("#ads")
-    );
+    if(isPremium == false){
+        ReactDOM.render(
+            <Ads />, document.querySelector("#ads")
+        );
+    }
 };
 
 const loadAllLocationsFromServer = (csrf) => {
@@ -223,9 +226,8 @@ const setup = function(csrf) {
     })
 
     premiumButton.addEventListener("click", (e) => {
-        //e.preventDefault();
+        isPremium = true;
         removeNonPremium();
-        //return false;
     })
 
    

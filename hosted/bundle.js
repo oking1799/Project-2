@@ -1,5 +1,7 @@
 "use strict";
 
+var isPremium = false;
+
 var handleLocation = function handleLocation(e) {
   e.preventDefault();
 
@@ -179,7 +181,10 @@ var loadLocationsFromServer = function loadLocationsFromServer(csrf) {
       locations: data.locations
     }), document.querySelector("#locations"));
   });
-  ReactDOM.render( /*#__PURE__*/React.createElement(Ads, null), document.querySelector("#ads"));
+
+  if (isPremium == false) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(Ads, null), document.querySelector("#ads"));
+  }
 };
 
 var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
@@ -230,8 +235,8 @@ var setup = function setup(csrf) {
     return false;
   });
   premiumButton.addEventListener("click", function (e) {
-    //e.preventDefault();
-    removeNonPremium(); //return false;
+    isPremium = true;
+    removeNonPremium();
   });
   loadLocationsFromServer(csrf);
 };
