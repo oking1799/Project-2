@@ -148,3 +148,15 @@ nav:nth-child(1) {
     min-height:60px;
     overflow: hidden;
 }
+
+#ad1{
+    float: left;
+    width: 200px;
+    height: 800px;
+}
+
+#ad2{
+    float: right;
+    width: 200px;
+    height: 800px;
+}
