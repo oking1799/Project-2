@@ -149,13 +149,13 @@ nav:nth-child(1) {
     overflow: hidden;
 }
 
-#ad1{
+.ad1{
     float: left;
     width: 200px;
     height: 800px;
 }
 
-#ad2{
+.ad2{
     float: right;
     width: 200px;
     height: 800px;
