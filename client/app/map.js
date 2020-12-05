@@ -81,6 +81,22 @@ const LocationSearch = (props) => {
     );
 }
 
+const Ads = () => {
+    return(
+        <div id="adImages">
+        <img src="/assets/img/gloop.jpeg" alt="Ad 1" className="ad1" />
+        <img src="/assets/img/gloop.jpeg" alt="Ad 2" className="ad2" />
+        </div>
+    );
+}
+
+const NoAds = () => {
+    return(
+        <div id="adImages">
+        </div>
+    );
+}
+
 //const LocationPage = (props) => {
     //return(
         //<div>
@@ -144,6 +160,10 @@ const loadLocationsFromServer = (csrf) => {
             <LocationList locations={data.locations} />, document.querySelector("#locations")
         );
     });
+
+    ReactDOM.render(
+        <Ads />, document.querySelector("#ads")
+    );
 };
 
 const loadAllLocationsFromServer = (csrf) => {
@@ -163,23 +183,32 @@ const loadSearchedLocations = () => {
             <LocationList locations={data.locations} />, document.querySelector("#locations")
         );
     });
+
+
 }
 
-//const renderLocationPage = (div) => {
+const renderLocationPage = (div) => {
 
-    //let element = div.getElementById("name");
-    //console.log(element);
-    //sendAjax('GET', '/search', element.serialize(), (data) => {
-        //<LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
-    //});
-//}
+    let element = div.getElementById("name");
+    console.log(element);
+    sendAjax('GET', '/search', element.serialize(), (data) => {
+        ReactDOM.render(
+        <LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
+        );
+    });
+}
+
+const removeNonPremium = () => {
+    ReactDOM.render(
+        <NoAds />, document.querySelector("#ads")
+    )
+}
 
 const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
-    
-    //const locationBlocks = document.querySelectorAll("#location");
-    //console.log("locations " + locationBlocks);
+    const premiumButton = document.querySelector("#premiumButton");
+
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -193,11 +222,13 @@ const setup = function(csrf) {
         return false;
     })
 
-   //for(const div of locationBlocks){
-      // div.addEventListener('click', function(e){
-           //renderLocationPage(div);
-       //})
-    //}
+    premiumButton.addEventListener("click", (e) => {
+        //e.preventDefault();
+        removeNonPremium();
+        //return false;
+    })
+
+   
     
     
 

@@ -102,6 +102,26 @@ var LocationSearch = function LocationSearch(props) {
     type: "submit",
     value: "search Location"
   })));
+};
+
+var Ads = function Ads() {
+  return /*#__PURE__*/React.createElement("div", {
+    id: "adImages"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "/assets/img/gloop.jpeg",
+    alt: "Ad 1",
+    className: "ad1"
+  }), /*#__PURE__*/React.createElement("img", {
+    src: "/assets/img/gloop.jpeg",
+    alt: "Ad 2",
+    className: "ad2"
+  }));
+};
+
+var NoAds = function NoAds() {
+  return /*#__PURE__*/React.createElement("div", {
+    id: "adImages"
+  });
 }; //const LocationPage = (props) => {
 //return(
 //<div>
@@ -159,6 +179,7 @@ var loadLocationsFromServer = function loadLocationsFromServer(csrf) {
       locations: data.locations
     }), document.querySelector("#locations"));
   });
+  ReactDOM.render( /*#__PURE__*/React.createElement(Ads, null), document.querySelector("#ads"));
 };
 
 var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
@@ -178,20 +199,26 @@ var loadSearchedLocations = function loadSearchedLocations() {
       locations: data.locations
     }), document.querySelector("#locations"));
   });
-}; //const renderLocationPage = (div) => {
-//let element = div.getElementById("name");
-//console.log(element);
-//sendAjax('GET', '/search', element.serialize(), (data) => {
-//<LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
-//});
-//}
+};
 
+var renderLocationPage = function renderLocationPage(div) {
+  var element = div.getElementById("name");
+  console.log(element);
+  sendAjax('GET', '/search', element.serialize(), function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
+      locations: data.locations
+    }), document.querySelector("#mapContainer"));
+  });
+};
+
+var removeNonPremium = function removeNonPremium() {
+  ReactDOM.render( /*#__PURE__*/React.createElement(NoAds, null), document.querySelector("#ads"));
+};
 
 var setup = function setup(csrf) {
   var makeButton = document.querySelector("#makeButton");
-  var allButton = document.querySelector("#allButton"); //const locationBlocks = document.querySelectorAll("#location");
-  //console.log("locations " + locationBlocks);
-
+  var allButton = document.querySelector("#allButton");
+  var premiumButton = document.querySelector("#premiumButton");
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
     loadLocationsFromServer(csrf);
@@ -201,12 +228,11 @@ var setup = function setup(csrf) {
     e.preventDefault();
     loadAllLocationsFromServer(csrf);
     return false;
-  }); //for(const div of locationBlocks){
-  // div.addEventListener('click', function(e){
-  //renderLocationPage(div);
-  //})
-  //}
-
+  });
+  premiumButton.addEventListener("click", function (e) {
+    //e.preventDefault();
+    removeNonPremium(); //return false;
+  });
   loadLocationsFromServer(csrf);
 };
 
