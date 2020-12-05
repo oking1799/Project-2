@@ -116,7 +116,7 @@ const passwordChange = (request, response) => {
      
 
     //if authenticated just search via username
-     Account.AccountModel.findOneAndUpdate({ username: username }, { password: newPasswordHash.password }, { returnNewDocument: true })
+     Account.AccountModel.findOneAndUpdate({ username: username }, { password: newPass }, { returnNewDocument: true })
       .then((updatedDocument) => {
         if (updatedDocument) {
           console.log(`Successfully updated password! new password info: ${updatedDocument}`);
