@@ -190,6 +190,7 @@ const setup = function(csrf) {
         loadAllLocationsFromServer(csrf);
         return false;
     })
+    
     locationBlocks.forEach(item => {
         console.log(item);
         item.addEventListener("click", (e) => {
