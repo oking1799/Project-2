@@ -103,33 +103,31 @@ const passwordChange = (request, response) => {
   }
 
   return Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
-    const accountData = {
-      username: req.body.username,
-      salt,
+    const newPasswordHash = {
       password: hash,
     };
 
 
-  return Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.password }, { password: req.body.newPass }, { returnNewDocument: true })
-  .then(updatedDocument => {
-    if(updatedDocument){
-      console.log(`Successfully updated password! new password info: ${updatedDocument}`);
-      res.json({ redirect: '/map' });
-    }else{
-      console.log("No account with such username/password");
-    }
+    return Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.password }, { password: accountData.password }, { returnNewDocument: true })
+      .then((updatedDocument) => {
+        if (updatedDocument) {
+          console.log(`Successfully updated password! new password info: ${updatedDocument}`);
+          res.json({ redirect: '/map' });
+        } else {
+          console.log('No account with such username/password');
+        }
 
-    return updatedDocument
-  })
+        return updatedDocument;
+      })
 
-  .catch(err => console.log("Failed to find and update Document: " + err));
-
+      .catch((err) => console.log(`Failed to find and update Document: ${err}`));
   });
-}
+};
 
 
 module.exports.loginPage = loginPage;
 module.exports.login = login;
 module.exports.logout = logout;
 module.exports.signup = signup;
+module.exports.changePass = passwordChange;
 module.exports.getToken = getToken;
