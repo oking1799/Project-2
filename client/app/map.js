@@ -177,7 +177,7 @@ const setup = function(csrf) {
     const makeButton = document.querySelector("#makeButton");
     const allButton = document.querySelector("#allButton");
     const locationBlocks = document.querySelectorAll("#location");
-    console.log(locationBlocks);
+    console.log("locations " + locationBlocks);
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -191,9 +191,9 @@ const setup = function(csrf) {
         return false;
     })
     locationBlocks.forEach(item => {
+        console.log(item);
         item.addEventListener("click", (e) => {
             renderLocationPage(item);
-            console.log(item);
         })
     });
     

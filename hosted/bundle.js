@@ -198,7 +198,7 @@ var setup = function setup(csrf) {
   var makeButton = document.querySelector("#makeButton");
   var allButton = document.querySelector("#allButton");
   var locationBlocks = document.querySelectorAll("#location");
-  console.log(locationBlocks);
+  console.log("locations " + locationBlocks);
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
     loadLocationsFromServer(csrf);
@@ -210,9 +210,9 @@ var setup = function setup(csrf) {
     return false;
   });
   locationBlocks.forEach(function (item) {
+    console.log(item);
     item.addEventListener("click", function (e) {
       renderLocationPage(item);
-      console.log(item);
     });
   });
   loadLocationsFromServer(csrf);
