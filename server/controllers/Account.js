@@ -109,13 +109,14 @@ const passwordChange = (request, response) => {
     };
 
 
-     Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.password }, { password: newPasswordHash.password }, { returnNewDocument: true })
+     Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.pass }, { password: newPasswordHash.password }, { returnNewDocument: true })
       .then((updatedDocument) => {
         if (updatedDocument) {
           console.log(`Successfully updated password! new password info: ${updatedDocument}`);
           res.json({ redirect: '/map' });
         } else {
           console.log('No account with such username/password');
+          return res.status(404).json({ error: 'No Account Found' });
         }
 
         //return updatedDocument;
