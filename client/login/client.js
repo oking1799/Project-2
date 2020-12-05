@@ -45,7 +45,7 @@ const handlePassword = (e) => {
         return false;
     }
 
-    console.log("serialized:" + $("passwordForm").serialize());
+    console.log("serialized:" + $("#passwordForm").serialize());
 
     sendAjax('POST', $("#passwordForm").attr("action"), $("#passwordForm").serialize(), redirect);
 

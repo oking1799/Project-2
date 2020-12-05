@@ -102,7 +102,7 @@ const passwordChange = (request, response) => {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  return Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
+  Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
     const newPasswordHash = {
       password: hash,
     };
@@ -120,7 +120,10 @@ const passwordChange = (request, response) => {
         return updatedDocument;
       })
 
-      .catch((err) => console.log(`Failed to find and update Document: ${err}`));
+      .catch((err) => {
+        console.log(`Failed to find and update Document: ${err}`);
+        return res.status(400).json({ error: 'An error occurred' });
+      });
   });
 };
 
