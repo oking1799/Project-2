@@ -91,6 +91,7 @@ const signup = (request, response) => {
 };
 
 const passwordChange = (request, response) => {
+  console.log("changing password...");
   const req = request;
   const res = response;
 
@@ -102,13 +103,13 @@ const passwordChange = (request, response) => {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
+  return Account.AccountModel.generateHash(req.body.newPass, (salt, hash) => {
     const newPasswordHash = {
       password: hash,
     };
 
 
-    return Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.password }, { password: accountData.password }, { returnNewDocument: true })
+     Account.AccountModel.findOneAndUpdate({ username: req.body.username, password: req.body.password }, { password: newPasswordHash.password }, { returnNewDocument: true })
       .then((updatedDocument) => {
         if (updatedDocument) {
           console.log(`Successfully updated password! new password info: ${updatedDocument}`);
@@ -117,7 +118,7 @@ const passwordChange = (request, response) => {
           console.log('No account with such username/password');
         }
 
-        return updatedDocument;
+        //return updatedDocument;
       })
 
       .catch((err) => {
