@@ -42,25 +42,29 @@ var MapForm = function MapForm(props) {
     method: "POST",
     className: "locationForm"
   }, /*#__PURE__*/React.createElement("label", {
-    htmlFor: "locationName"
+    htmlFor: "locationName",
+    id: "nameLabel"
   }, "name: "), /*#__PURE__*/React.createElement("input", {
     id: "nameField",
     type: "text",
     name: "name"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "country"
+    htmlFor: "country",
+    id: "countryLabel"
   }, "country: "), /*#__PURE__*/React.createElement("input", {
     id: "countryField",
     type: "text",
     name: "country"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "description"
+    htmlFor: "description",
+    id: "descriptionLabel"
   }, "description: "), /*#__PURE__*/React.createElement("input", {
     id: "descriptionField",
     type: "float",
     name: "description"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "rating"
+    htmlFor: "rating",
+    id: "ratingLabel"
   }, "Rating "), /*#__PURE__*/React.createElement("input", {
     id: "ratingField",
     type: "number",
@@ -69,7 +73,8 @@ var MapForm = function MapForm(props) {
     step: "1",
     name: "rating"
   }), /*#__PURE__*/React.createElement("label", {
-    htmlFor: "review"
+    htmlFor: "review",
+    id: "reviewLabel"
   }, "Review "), /*#__PURE__*/React.createElement("input", {
     id: "reviewField",
     type: "text",
@@ -119,11 +124,11 @@ var Ads = function Ads() {
   return /*#__PURE__*/React.createElement("div", {
     id: "adImages"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "/assets/img/gloop.jpg",
+    src: "/assets/img/ad-placeholder.jpg",
     alt: "Ad 1",
     className: "ad1"
   }), /*#__PURE__*/React.createElement("img", {
-    src: "/assets/img/gloop.jpg",
+    src: "/assets/img/ad-placeholder.jpg",
     alt: "Ad 2",
     className: "ad2"
   }));

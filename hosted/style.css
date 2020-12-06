@@ -223,8 +223,8 @@ nav:nth-child(1) {
 .trigger_popUp {
     cursor: pointer;
     font-size: 20px;
-    margin: 10%;
-    padding-left: 40px;
+    margin-top: 10%;
+    margin-left: 40px;
     display: inline-block;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
@@ -243,7 +243,11 @@ nav:nth-child(1) {
 }
 
 #searchLabel{
-    margin-left: 35%;
+    margin-left: 30%;
     font-family: 'Roboto', sans-serif;
     
+}
+
+#nameLabel, #countryLabel, #descriptionLabel, #ratingLabel, #reviewLabel{
+    font-family: 'Roboto', sans-serif;
 }

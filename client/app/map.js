@@ -48,15 +48,15 @@ const MapForm = (props) => {
             method="POST"
             className="locationForm">
 
-        <label htmlFor="locationName">name: </label>
+        <label htmlFor="locationName" id="nameLabel">name: </label>
         <input id="nameField" type="text" name="name" />
-        <label htmlFor="country">country: </label>
+        <label htmlFor="country" id="countryLabel">country: </label>
         <input id="countryField" type="text" name="country" />
-        <label htmlFor="description">description: </label>
+        <label htmlFor="description" id="descriptionLabel">description: </label>
         <input id="descriptionField" type="float" name="description" />
-        <label htmlFor="rating">Rating </label>
+        <label htmlFor="rating" id="ratingLabel">Rating </label>
         <input id="ratingField" type="number" min="0" max = "5" step="1" name="rating" />
-        <label htmlFor="review">Review </label>
+        <label htmlFor="review" id="reviewLabel">Review </label>
         <input id="reviewField" type="text" name="review" />
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="makeLocationSubmit" type="submit" value="make Location" />
@@ -92,8 +92,8 @@ const LocationSearch = (props) => {
 const Ads = () => {
     return(
         <div id="adImages">
-        <img src="/assets/img/gloop.jpg" alt="Ad 1" className="ad1" />
-        <img src="/assets/img/gloop.jpg" alt="Ad 2" className="ad2" />
+        <img src="/assets/img/ad-placeholder.jpg" alt="Ad 1" className="ad1" />
+        <img src="/assets/img/ad-placeholder.jpg" alt="Ad 2" className="ad2" />
         </div>
     );
 }
