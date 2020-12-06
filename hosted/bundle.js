@@ -168,7 +168,7 @@ var LocationList = function LocationList(props) {
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationReview"
     }, " Review: ", location.review, " "), /*#__PURE__*/React.createElement("button", {
-      onclick: handleClick(location)
+      onClick: handleClick(location)
     }, "View page"));
   });
   return /*#__PURE__*/React.createElement("div", {
