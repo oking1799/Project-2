@@ -110,9 +110,9 @@ nav:nth-child(1) {
 
 
 #mapContainer {
-    width: 60%;
+    width: 65%;
     height: 100px;
-    background-color: grey;
+    background-color: #1d3557;
     border-radius: 3px;
     margin: auto;
     padding-bottom: 50px;
