@@ -201,7 +201,7 @@ var LocationList = function LocationList(props) {
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationRating"
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("button", {
-      "class": "trigger_popUp",
+      className: "trigger_popUp",
       onClick: function onClick() {
         handleClick(location);
       }

@@ -173,7 +173,7 @@ const LocationList = function(props) {
                
                <h3 className="locationName"> Name: {location.name} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
-               <button class="trigger_popUp" onClick={() => { handleClick(location) }}>More Info</button>
+               <button className="trigger_popUp" onClick={() => { handleClick(location) }}>More Info</button>
             </div>
             
         );
