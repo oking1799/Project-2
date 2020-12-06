@@ -133,11 +133,11 @@ var LocationPage = function LocationPage(props) {
   console.log(props.props.name);
   console.log(props.Object);
   return /*#__PURE__*/React.createElement("div", {
-    "class": "popUp"
+    className: "popUp"
   }, /*#__PURE__*/React.createElement("span", {
-    "class": "helper"
+    className: "helper"
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    "class": "popupCloseButton"
+    className: "popupCloseButton"
   }, "\xD7"), /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
   }, "Location: ", props.props.name), /*#__PURE__*/React.createElement("h2", {

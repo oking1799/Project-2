@@ -110,10 +110,10 @@ const LocationPage = (props) => {
     console.log(props.props.name);
     console.log(props.Object);
     return(
-        <div class="popUp">
-        <span class="helper"></span>
+        <div className="popUp">
+        <span className="helper"></span>
         <div>
-        <div class="popupCloseButton">&times;</div>
+        <div className="popupCloseButton">&times;</div>
         <h1 id="locationTitle">Location: {props.props.name}</h1>
         <h2 id="countryTitle">Country: {props.props.country}</h2>
         <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
