@@ -103,7 +103,8 @@ const NoAds = () => {
 
 const LocationPage = (props) => {
     console.log(props);
-    console.log(props[0]);
+    console.log(props.props);
+    console.log(props.Object);
     return(
         <div>
         <h1 id="locationTitle">{props.name}</h1>
@@ -146,7 +147,7 @@ const LocationList = function(props) {
                <h3 className="locationDescription"> Reason For Visit: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
-               <button onClick={() => {handleClick(location) }}>View Location log</button>
+               <button onClick={() => { handleClick(location) }}>View Location log</button>
             </div>
             
         );
