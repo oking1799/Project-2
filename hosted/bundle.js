@@ -86,7 +86,11 @@ var MapForm = function MapForm(props) {
 };
 
 var LocationSearch = function LocationSearch(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Locations"), /*#__PURE__*/React.createElement("p", null, "On this page you can find locations created by other users! filter results with a search"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    id: "locationH1"
+  }, "Locations"), /*#__PURE__*/React.createElement("p", {
+    id: "searchInstructions"
+  }, "On this page you can find locations created by other users! filter results with a search"), /*#__PURE__*/React.createElement("form", {
     id: "searchForm",
     onSubmit: searchLocation,
     name: "searchForm",
@@ -94,7 +98,8 @@ var LocationSearch = function LocationSearch(props) {
     method: "GET",
     className: "searchForm"
   }, /*#__PURE__*/React.createElement("label", {
-    htmlFor: "nameSearch"
+    htmlFor: "nameSearch",
+    id: "searchLabel"
   }, "Search By Name: "), /*#__PURE__*/React.createElement("input", {
     id: "nameSearch",
     type: "text",

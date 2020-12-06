@@ -110,9 +110,9 @@ nav:nth-child(1) {
 
 
 #mapContainer {
-    width: 65%;
+    width: 60%;
     height: 100px;
-    background-color: #0096c7;
+    background-color: #2a6f97;
     border-radius: 3px;
     margin: auto;
     padding-bottom: 50px;
@@ -228,6 +228,10 @@ nav:nth-child(1) {
     font-weight: bold;
 }
 
-#locationRatings{
+#locationRatings, #locationH1, #searchInstructions, #locationName, #locationRating{
     text-align: center;
+}
+
+#searchLabel{
+    margin-left: 40%;
 }

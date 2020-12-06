@@ -70,8 +70,8 @@ const MapForm = (props) => {
 const LocationSearch = (props) => {
     return(
     <div>
-        <h1>Locations</h1>
-        <p>On this page you can find locations created by other users! filter results with a search</p>
+        <h1 id="locationH1">Locations</h1>
+        <p id="searchInstructions">On this page you can find locations created by other users! filter results with a search</p>
         <form id="searchForm" 
             onSubmit={searchLocation} 
             name="searchForm" 
@@ -79,7 +79,7 @@ const LocationSearch = (props) => {
             method="GET"
             className="searchForm">
 
-        <label htmlFor="nameSearch">Search By Name: </label>
+        <label htmlFor="nameSearch" id="searchLabel">Search By Name: </label>
         <input id="nameSearch" type="text" name="name" />
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="searchSubmit" type="submit" value="search Location" />
