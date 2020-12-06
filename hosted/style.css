@@ -223,7 +223,7 @@ nav:nth-child(1) {
 .trigger_popUp {
     cursor: pointer;
     font-size: 20px;
-    margin: 40%;
+    margin: 10%;
     display: inline-block;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
@@ -238,7 +238,7 @@ nav:nth-child(1) {
 .locationName, .locationRating{
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 30px;
 }
 
 #searchLabel{
