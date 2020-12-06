@@ -227,7 +227,6 @@ var loadLocationsFromServer = function loadLocationsFromServer(csrf) {
 };
 
 var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
-  currentPage = "all";
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationSearch, {
     csrf: csrf
   }), document.querySelector("#mapContainer"));
@@ -248,7 +247,6 @@ var loadSearchedLocations = function loadSearchedLocations() {
 };
 
 var renderLocationPage = function renderLocationPage(location) {
-  currentPage = "user";
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
     props: location
   }), document.querySelector("#mapContainer"));
@@ -264,11 +262,13 @@ var setup = function setup(csrf) {
   var premiumButton = document.querySelector("#premiumButton");
   makeButton.addEventListener("click", function (e) {
     e.preventDefault();
+    currentPage = "user";
     loadLocationsFromServer(csrf);
     return false;
   });
   allButton.addEventListener("click", function (e) {
     e.preventDefault();
+    currentPage = "all";
     loadAllLocationsFromServer(csrf);
     return false;
   });

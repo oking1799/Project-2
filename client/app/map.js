@@ -208,7 +208,7 @@ const loadLocationsFromServer = (csrf) => {
 };
 
 const loadAllLocationsFromServer = (csrf) => {
-    currentPage = "all";
+    
 ReactDOM.render(
     <LocationSearch csrf={csrf} />, document.querySelector("#mapContainer")
 );
@@ -231,7 +231,6 @@ const loadSearchedLocations = () => {
 }
 
 const renderLocationPage = (location) => {
-    currentPage = "user";
     ReactDOM.render(
         <LocationPage props={location} />, document.querySelector("#mapContainer")
         );
@@ -253,12 +252,14 @@ const setup = function(csrf) {
 
     makeButton.addEventListener("click", (e) => {
         e.preventDefault();
+        currentPage = "user";
         loadLocationsFromServer(csrf);
         return false;
     });
 
     allButton.addEventListener("click", (e) => {
         e.preventDefault();
+        currentPage = "all";
         loadAllLocationsFromServer(csrf);
         return false;
     })
