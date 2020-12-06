@@ -143,7 +143,7 @@ const LocationList = function(props) {
                <h3 className="locationDescription"> Reason For Visit: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
-               <button onClick={handleClick(location)}>View page</button>
+               <button onClick={() => {handleClick(location) }}>View page</button>
             </div>
             
         );
@@ -239,6 +239,7 @@ const setup = function(csrf) {
     premiumButton.addEventListener("click", (e) => {
         isPremium = true;
         removeNonPremium();
+        premiumButton.innerHTML = "Premium User!";
     })
 
    

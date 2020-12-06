@@ -168,7 +168,9 @@ var LocationList = function LocationList(props) {
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationReview"
     }, " Review: ", location.review, " "), /*#__PURE__*/React.createElement("button", {
-      onClick: handleClick(location)
+      onClick: function onClick() {
+        handleClick(location);
+      }
     }, "View page"));
   });
   return /*#__PURE__*/React.createElement("div", {
@@ -243,6 +245,7 @@ var setup = function setup(csrf) {
   premiumButton.addEventListener("click", function (e) {
     isPremium = true;
     removeNonPremium();
+    premiumButton.innerHTML = "Premium User!";
   });
   loadLocationsFromServer(csrf);
 };
