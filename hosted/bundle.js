@@ -127,7 +127,7 @@ var NoAds = function NoAds() {
 };
 
 var LocationPage = function LocationPage(props) {
-  console.log(props.name);
+  console.log(props);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
   }, props.name), /*#__PURE__*/React.createElement("h2", {
