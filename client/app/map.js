@@ -114,6 +114,12 @@ const NoAds = () => {
     //);
 //}
 
+function handleClick(location){
+    //e.preventDefault();
+    console.log(location);
+
+}
+
 const LocationList = function(props) {
     console.log(props);
     if(props.locations.length === 0){
@@ -124,11 +130,7 @@ const LocationList = function(props) {
         );
     }
 
-    function handleClick(location){
-        //e.preventDefault();
-        console.log(location);
-
-    }
+   
     
     const locationNodes = props.locations.slice(0).reverse().map(function(location) {
         

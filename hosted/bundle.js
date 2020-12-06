@@ -137,6 +137,11 @@ var NoAds = function NoAds() {
 //}
 
 
+function handleClick(location) {
+  //e.preventDefault();
+  console.log(location);
+}
+
 var LocationList = function LocationList(props) {
   console.log(props);
 
@@ -146,11 +151,6 @@ var LocationList = function LocationList(props) {
     }, /*#__PURE__*/React.createElement("h3", {
       className: "noLocation"
     }, "No Locations found!"));
-  }
-
-  function handleClick(location) {
-    //e.preventDefault();
-    console.log(location);
   }
 
   var locationNodes = props.locations.slice(0).reverse().map(function (location) {
