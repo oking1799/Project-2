@@ -102,6 +102,7 @@ const NoAds = () => {
 }
 
 const LocationPage = (props) => {
+    console.log(props);
     return(
         <div>
         <h1 id="locationTitle">{ props.name }</h1>
@@ -203,7 +204,7 @@ const loadSearchedLocations = () => {
 
 const renderLocationPage = (location) => {
     ReactDOM.render(
-        <LocationPage locations={location} />, document.querySelector("#mapContainer")
+        <LocationPage props={location} />, document.querySelector("#mapContainer")
         );
   
 }

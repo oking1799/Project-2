@@ -127,6 +127,7 @@ var NoAds = function NoAds() {
 };
 
 var LocationPage = function LocationPage(props) {
+  console.log(props);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
   }, props.name), /*#__PURE__*/React.createElement("h2", {
@@ -221,7 +222,7 @@ var loadSearchedLocations = function loadSearchedLocations() {
 
 var renderLocationPage = function renderLocationPage(location) {
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
-    locations: location
+    props: location
   }), document.querySelector("#mapContainer"));
 };
 
