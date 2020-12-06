@@ -124,7 +124,7 @@ nav:nth-child(1) {
     min-width: 400px;
     border-radius: 4px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 30px;
     
     overflow-y: auto;
 }
@@ -223,17 +223,22 @@ nav:nth-child(1) {
 .trigger_popUp {
     cursor: pointer;
     font-size: 20px;
-    margin: 50px;
+    margin: 40%;
     display: inline-block;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     
 }
 
-#locationRatings, #locationH1, #searchInstructions, .locationName, .locationRating, #locationsH2{
+#locationRatings, #locationH1, #searchInstructions, #locationsH2{
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    
+}
+
+.locationName, .locationRating{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 }
 
 #searchLabel{
