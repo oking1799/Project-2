@@ -38,7 +38,7 @@ const searchLocation = (e) => {
 const MapForm = (props) => {
     return (
         <div>
-        <h1>Location Ratings</h1>
+        <h1 id="locationRatings">Location Ratings</h1>
         
     
     <form id="locationForm" 

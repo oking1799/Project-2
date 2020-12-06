@@ -112,7 +112,7 @@ nav:nth-child(1) {
 #mapContainer {
     width: 65%;
     height: 100px;
-    background-color: #1d3557;
+    background-color: #0096c7;
     border-radius: 3px;
     margin: auto;
     padding-bottom: 50px;
@@ -226,4 +226,8 @@ nav:nth-child(1) {
     margin: 20px;
     display: inline-block;
     font-weight: bold;
+}
+
+#locationRatings{
+    text-align: center;
 }

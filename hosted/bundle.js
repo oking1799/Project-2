@@ -32,7 +32,9 @@ var searchLocation = function searchLocation(e) {
 };
 
 var MapForm = function MapForm(props) {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Location Ratings"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    id: "locationRatings"
+  }, "Location Ratings"), /*#__PURE__*/React.createElement("form", {
     id: "locationForm",
     onSubmit: handleLocation,
     name: "locationForm",
