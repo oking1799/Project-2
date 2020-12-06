@@ -125,10 +125,9 @@ const LocationPage = (props) => {
 }
 
 function handleClick(location){
-    //e.preventDefault();
-    console.log("button clicked " + location);
-   
     renderLocationPage(location);
+    console.log($('.popUp'));
+    $('.popUp').show();
     $('.popUp').show();
 
 }
