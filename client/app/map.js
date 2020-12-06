@@ -126,9 +126,10 @@ const LocationPage = (props) => {
 
 function handleClick(location){
     renderLocationPage(location);
+    renderLocationPage(location);
     console.log($('.popUp'));
     $('.popUp').show();
-    $('.popUp').show();
+    
 
 }
 
@@ -233,7 +234,7 @@ const loadSearchedLocations = () => {
 
 const renderLocationPage = (location) => {
     ReactDOM.render(
-        <LocationPage props={location} />, document.querySelector("#mapContainer")
+        <LocationPage props={location} />, document.querySelector("#popUp")
         );
   
 }

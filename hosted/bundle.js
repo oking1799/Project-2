@@ -154,8 +154,8 @@ var LocationPage = function LocationPage(props) {
 
 function handleClick(location) {
   renderLocationPage(location);
+  renderLocationPage(location);
   console.log($('.popUp'));
-  $('.popUp').show();
   $('.popUp').show();
 }
 
@@ -249,7 +249,7 @@ var loadSearchedLocations = function loadSearchedLocations() {
 var renderLocationPage = function renderLocationPage(location) {
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
     props: location
-  }), document.querySelector("#mapContainer"));
+  }), document.querySelector("#popUp"));
 };
 
 var removeNonPremium = function removeNonPremium() {
