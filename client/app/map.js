@@ -107,11 +107,11 @@ const LocationPage = (props) => {
     console.log(props.Object);
     return(
         <div>
-        <h1 id="locationTitle">{props.name}</h1>
-        <h2 id="countryTitle">{props.country}</h2>
-        <h3 id="ratingTitle">{props.rating}/5</h3>
-        <p id="descriptionTitle">{props.description}</p>
-        <p id="reviewTitle">{props.review}</p>
+        <h1 id="locationTitle">{props.props.name}</h1>
+        <h2 id="countryTitle">{props.props.country}</h2>
+        <h3 id="ratingTitle">{props.props.rating}/5</h3>
+        <p id="descriptionTitle">{props.props.description}</p>
+        <p id="reviewTitle">{props.props.review}</p>
         </div>
 
     );

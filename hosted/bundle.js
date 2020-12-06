@@ -132,15 +132,15 @@ var LocationPage = function LocationPage(props) {
   console.log(props.Object);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
-  }, props.name), /*#__PURE__*/React.createElement("h2", {
+  }, props.props.name), /*#__PURE__*/React.createElement("h2", {
     id: "countryTitle"
-  }, props.country), /*#__PURE__*/React.createElement("h3", {
+  }, props.props.country), /*#__PURE__*/React.createElement("h3", {
     id: "ratingTitle"
-  }, props.rating, "/5"), /*#__PURE__*/React.createElement("p", {
+  }, props.props.rating, "/5"), /*#__PURE__*/React.createElement("p", {
     id: "descriptionTitle"
-  }, props.description), /*#__PURE__*/React.createElement("p", {
+  }, props.props.description), /*#__PURE__*/React.createElement("p", {
     id: "reviewTitle"
-  }, props.review));
+  }, props.props.review));
 };
 
 function handleClick(location) {
