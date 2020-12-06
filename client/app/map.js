@@ -103,7 +103,7 @@ const NoAds = () => {
 
 const LocationPage = (props) => {
     console.log(props);
-    
+    console.log(props[0]);
     return(
         <div>
         <h1 id="locationTitle">{props.name}</h1>
