@@ -224,7 +224,7 @@ nav:nth-child(1) {
     cursor: pointer;
     font-size: 20px;
     margin-top: 10%;
-    margin-left: 60px;
+    margin-left: 80px;
     display: inline-block;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
@@ -250,5 +250,5 @@ nav:nth-child(1) {
 
 #nameLabel, #countryLabel, #descriptionLabel, #ratingLabel, #reviewLabel{
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 13px;
 }

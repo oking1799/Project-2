@@ -133,8 +133,6 @@ const passwordChange = (request, response) => {
         });
     });
   });
-
-  
 };
 
 
