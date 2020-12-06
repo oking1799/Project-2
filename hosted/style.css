@@ -111,6 +111,7 @@ nav:nth-child(1) {
     width: 60%;
     height: 100px;
     background-color: grey;
+    border-radius: 3px;
     margin: auto;
     padding-bottom: 50px;
   }
@@ -119,7 +120,6 @@ nav:nth-child(1) {
   #locations {
     width: 60%;
     min-width: 400px;
-    border: 2px solid #2a6f97;
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 100px;
