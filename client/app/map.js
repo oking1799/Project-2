@@ -114,7 +114,7 @@ const LocationPage = (props) => {
         <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
         <p id="descriptionTitle">Reason For Visit: {props.props.description}</p>
         <p id="reviewTitle">Review: {props.props.review}</p>
-        <button onClick={() => { getToken }}>return</button>
+        <button onClick={() => { removeLocationClick(snagCSRF) }}>return</button>
         </div>
 
     );
@@ -159,7 +159,7 @@ const LocationList = function(props) {
                <h3 className="locationDescription"> Reason For Visit: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
-               <button onClick={() => {  removeLocationClick(snagCSRF) }}>View Location log</button>
+               <button onClick={() => { handleClick(location) }}>View Location log</button>
             </div>
             
         );

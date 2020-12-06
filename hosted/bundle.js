@@ -143,7 +143,7 @@ var LocationPage = function LocationPage(props) {
     id: "reviewTitle"
   }, "Review: ", props.props.review), /*#__PURE__*/React.createElement("button", {
     onClick: function onClick() {
-      getToken;
+      removeLocationClick(snagCSRF);
     }
   }, "return"));
 };
@@ -190,7 +190,7 @@ var LocationList = function LocationList(props) {
       className: "locationReview"
     }, " Review: ", location.review, " "), /*#__PURE__*/React.createElement("button", {
       onClick: function onClick() {
-        removeLocationClick(snagCSRF);
+        handleClick(location);
       }
     }, "View Location log"));
   });
