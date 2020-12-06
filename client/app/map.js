@@ -2,7 +2,7 @@ let isPremium = false;
 
 let snagCSRF;
 
-let currentPage;
+let currentPage = "user";
 
 const handleLocation = (e) => {
     e.preventDefault();
