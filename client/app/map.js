@@ -116,7 +116,7 @@ const NoAds = () => {
 
 function handleClick(location){
     //e.preventDefault();
-    console.log(location);
+    console.log("button clicked " + location);
 
 }
 

@@ -139,7 +139,7 @@ var NoAds = function NoAds() {
 
 function handleClick(location) {
   //e.preventDefault();
-  console.log(location);
+  console.log("button clicked " + location);
 }
 
 var LocationList = function LocationList(props) {
