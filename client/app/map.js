@@ -167,7 +167,7 @@ const LocationList = function(props) {
                
                <h3 className="locationName"> Name: {location.name} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
-               <button onClick={() => { handleClick(location) }}>View Location log</button>
+               <button onClick={() => { handleClick(location) }}>More Info</button>
             </div>
             
         );
