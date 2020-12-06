@@ -156,8 +156,7 @@ var LocationList = function LocationList(props) {
   var locationNodes = props.locations.slice(0).reverse().map(function (location) {
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
-      className: "location",
-      onClick: handleClick(location)
+      className: "location"
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
@@ -168,7 +167,9 @@ var LocationList = function LocationList(props) {
       className: "locationRating"
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationReview"
-    }, " Review: ", location.review, " "));
+    }, " Review: ", location.review, " "), /*#__PURE__*/React.createElement("button", {
+      onclick: handleClick(location)
+    }, "View page"));
   });
   return /*#__PURE__*/React.createElement("div", {
     className: "locationList"
