@@ -190,14 +190,8 @@ var LocationList = function LocationList(props) {
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "locationCountry"
-    }, " Country: ", location.country, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "locationDescription"
-    }, " Reason For Visit: ", location.description, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationRating"
-    }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("h3", {
-      className: "locationReview"
-    }, " Review: ", location.review, " "), /*#__PURE__*/React.createElement("button", {
+    }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("button", {
       onClick: function onClick() {
         handleClick(location);
       }

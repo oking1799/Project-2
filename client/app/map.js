@@ -166,10 +166,7 @@ const LocationList = function(props) {
            <div key={location._id} className="location" >
                
                <h3 className="locationName"> Name: {location.name} </h3>
-               <h3 className="locationCountry"> Country: {location.country} </h3>
-               <h3 className="locationDescription"> Reason For Visit: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
-               <h3 className="locationReview"> Review: {location.review} </h3>
                <button onClick={() => { handleClick(location) }}>View Location log</button>
             </div>
             
