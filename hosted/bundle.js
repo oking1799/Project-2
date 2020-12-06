@@ -148,8 +148,8 @@ var LocationList = function LocationList(props) {
     }, "No Locations found!"));
   }
 
-  function handleClick(e, location) {
-    e.preventDefault();
+  function handleClick(location) {
+    //e.preventDefault();
     console.log(location);
   }
 
