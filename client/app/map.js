@@ -134,7 +134,7 @@ const LocationList = function(props) {
         
         return (
            
-           <div key={location._id} className="location" onclick={handleClick(location)}>
+           <div key={location._id} className="location" onClick={handleClick(location)}>
                
                <h3 className="locationName"> Name: {location.name} </h3>
                <h3 className="locationCountry"> Country: {location.country} </h3>

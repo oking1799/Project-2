@@ -157,7 +157,7 @@ var LocationList = function LocationList(props) {
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
       className: "location",
-      onclick: handleClick(location)
+      onClick: handleClick(location)
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
