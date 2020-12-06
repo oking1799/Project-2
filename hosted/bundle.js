@@ -209,7 +209,9 @@ var LocationList = function LocationList(props) {
       }
     }, "More Info"));
   });
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Your Locations"), /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", {
+    id: "locationsH2"
+  }, "Locations"), /*#__PURE__*/React.createElement("div", {
     className: "locationList"
   }, locationNodes));
 };

@@ -179,7 +179,7 @@ const LocationList = function(props) {
 
     return (
         <div>
-            <h2>Your Locations</h2>
+            <h2 id="locationsH2">Locations</h2>
         <div className="locationList">
             {locationNodes}
         </div>
