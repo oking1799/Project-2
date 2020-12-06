@@ -101,22 +101,23 @@ const NoAds = () => {
     );
 }
 
-//const LocationPage = (props) => {
-    //return(
-        //<div>
-        //<h1 id="locationTitle">{ props.name }</h1>
-        //<h2 id="countryTitle">{ props.country}</h2>
-        //<h3 id="ratingTitle">{ props.rating }/5</h3>
-        //<p id="descriptionTitle">{ props.description }</p>
-        //<p id="reviewTitle">{ props.review }</p>
-        //</div>
+const LocationPage = (props) => {
+    return(
+        <div>
+        <h1 id="locationTitle">{ props.name }</h1>
+        <h2 id="countryTitle">{ props.country}</h2>
+        <h3 id="ratingTitle">{ props.rating }/5</h3>
+        <p id="descriptionTitle">{ props.description }</p>
+        <p id="reviewTitle">{ props.review }</p>
+        </div>
 
-    //);
-//}
+    );
+}
 
 function handleClick(location){
     //e.preventDefault();
     console.log("button clicked " + location);
+    renderLocationPage(location)
 
 }
 
@@ -200,15 +201,11 @@ const loadSearchedLocations = () => {
 
 }
 
-const renderLocationPage = (div) => {
-
-    //let element = div.getElementById("name");
-    //console.log(element);
-    //sendAjax('GET', '/search', element.serialize(), (data) => {
-        //ReactDOM.render(
-        //<LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
-        //);
-   // });
+const renderLocationPage = (location) => {
+    ReactDOM.render(
+        <LocationPage locations={location} />, document.querySelector("#mapContainer")
+        );
+  
 }
 
 const removeNonPremium = () => {
