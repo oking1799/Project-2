@@ -70,7 +70,7 @@ const signup = (request, response) => {
     };
 
     const newAccount = new Account.AccountModel(accountData);
-    console.log("new account created: " + newAccount);
+    console.log(`new account created: ${newAccount}`);
 
     const savePromise = newAccount.save();
 
@@ -109,30 +109,28 @@ const passwordChange = (request, response) => {
       password: hash,
     };
 
-    Account.AccountModel.authenticate(username, pass, (err, account) => {  //authenticate the user
-      if(err || !account){
+    Account.AccountModel.authenticate(username, pass, (err, account) => { // authenticate the user
+      if (err || !account) {
         return res.status(401).json({ error: 'Wrong Username or Password' });
       }
 
-     
 
-    //if authenticated just search via username
-     Account.AccountModel.findOneAndUpdate({ username: username }, { password: newPasswordHash.password, salt: newPasswordHash.salt }, { returnNewDocument: true })
-      .then((updatedDocument) => {
-        if (updatedDocument) {
-          console.log(`Successfully updated password! new password info: ${updatedDocument}`);
-          req.session.account = Account.AccountModel.toAPI(updatedDocument);
-          return res.json({ redirect: '/login' });
-        } else {
+      // if authenticated just search via username
+      Account.AccountModel.findOneAndUpdate({ username }, { password: newPasswordHash.password, salt: newPasswordHash.salt }, { returnNewDocument: true })
+        .then((updatedDocument) => {
+          if (updatedDocument) {
+            console.log(`Successfully updated password! new password info: ${updatedDocument}`);
+            req.session.account = Account.AccountModel.toAPI(updatedDocument);
+            return res.json({ redirect: '/login' });
+          }
           console.log('No account with such username/password');
           return res.status(404).json({ error: 'No Account Found' });
-        }
-      })
+        })
 
-      .catch((err) => {
-        console.log(`Failed to find and update Document: ${err}`);
-        return res.status(400).json({ error: 'An error occurred' });
-      });
+        .catch((err) => {
+          console.log(`Failed to find and update Document: ${err}`);
+          return res.status(400).json({ error: 'An error occurred' });
+        });
     });
   });
 };
