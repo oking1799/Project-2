@@ -154,7 +154,6 @@ var LocationPage = function LocationPage(props) {
 
 function handleClick(location) {
   renderLocationPage(location);
-  renderLocationPage(location);
   console.log($('.popUp'));
   $('.popUp').show();
 }
