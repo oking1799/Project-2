@@ -226,18 +226,18 @@ nav:nth-child(1) {
     margin: 20px;
     display: inline-block;
     font-weight: bold;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Roboto', sans-serif;
     
 }
 
 #locationRatings, #locationH1, #searchInstructions, .locationName, .locationRating{
     text-align: center;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Roboto', sans-serif;
     
 }
 
 #searchLabel{
     margin-left: 35%;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Roboto', sans-serif;
     
 }
