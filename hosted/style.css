@@ -164,3 +164,8 @@ nav:nth-child(1) {
     width: 200px;
     height: 800px;
 }
+
+#locationTitle, #countryTitle, #ratingTitle, #descriptionTitle, #reviewTitle, #returnButton {
+    float: left;
+    margin-left: 20px;
+  }

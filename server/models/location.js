@@ -69,6 +69,8 @@ LocationSchema.statics.findByOwner = (ownerID, callback) => {
   return LocationModel.find(search).select('name country description rating review').lean().exec(callback);
 };
 
+
+
 LocationModel = mongoose.model('Location', LocationSchema);
 
 module.exports.LocationModel = LocationModel;
