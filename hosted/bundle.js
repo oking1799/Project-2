@@ -132,7 +132,13 @@ var LocationPage = function LocationPage(props) {
   console.log(props);
   console.log(props.props.name);
   console.log(props.Object);
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+  return /*#__PURE__*/React.createElement("div", {
+    "class": "popUp"
+  }, /*#__PURE__*/React.createElement("span", {
+    "class": "helper"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    "class": "popupCloseButton"
+  }, "\xD7"), /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
   }, "Location: ", props.props.name), /*#__PURE__*/React.createElement("h2", {
     id: "countryTitle"
@@ -143,15 +149,17 @@ var LocationPage = function LocationPage(props) {
   }, "Reason For Visit: ", props.props.description), /*#__PURE__*/React.createElement("p", {
     id: "reviewTitle"
   }, "Review: ", props.props.review), /*#__PURE__*/React.createElement("button", {
+    id: "returnButton",
     onClick: function onClick() {
       removeLocationClick(snagCSRF);
     }
-  }, "return"));
+  }, "return")));
 };
 
 function handleClick(location) {
   //e.preventDefault();
   console.log("button clicked " + location);
+  $('.popUp').show();
   renderLocationPage(location);
 }
 
@@ -159,6 +167,7 @@ function removeLocationClick(csrf) {
   //e.preventDefault();
   console.log("button clicked " + location);
   console.log(currentPage);
+  $('.popUp').hide();
 
   if (currentPage == "user") {
     ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
@@ -192,10 +201,11 @@ var LocationList = function LocationList(props) {
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationRating"
     }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("button", {
+      "class": "trigger_popUp",
       onClick: function onClick() {
         handleClick(location);
       }
-    }, "View Location log"));
+    }, "More Info"));
   });
   return /*#__PURE__*/React.createElement("div", {
     className: "locationList"

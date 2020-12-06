@@ -110,13 +110,17 @@ const LocationPage = (props) => {
     console.log(props.props.name);
     console.log(props.Object);
     return(
+        <div class="popUp">
+        <span class="helper"></span>
         <div>
+        <div class="popupCloseButton">&times;</div>
         <h1 id="locationTitle">Location: {props.props.name}</h1>
         <h2 id="countryTitle">Country: {props.props.country}</h2>
         <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
         <p id="descriptionTitle">Reason For Visit: {props.props.description}</p>
         <p id="reviewTitle">Review: {props.props.review}</p>
         <button id="returnButton"onClick={() => { removeLocationClick(snagCSRF) }}>return</button>
+        </div>
         </div>
 
     );
@@ -125,6 +129,7 @@ const LocationPage = (props) => {
 function handleClick(location){
     //e.preventDefault();
     console.log("button clicked " + location);
+    $('.popUp').show();
     renderLocationPage(location)
 
 }
@@ -133,6 +138,7 @@ function removeLocationClick(csrf){
     //e.preventDefault();
     console.log("button clicked " + location);
     console.log(currentPage);
+    $('.popUp').hide();
     if(currentPage == "user"){
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
@@ -167,7 +173,7 @@ const LocationList = function(props) {
                
                <h3 className="locationName"> Name: {location.name} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
-               <button onClick={() => { handleClick(location) }}>More Info</button>
+               <button class="trigger_popUp" onClick={() => { handleClick(location) }}>More Info</button>
             </div>
             
         );
