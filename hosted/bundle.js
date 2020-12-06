@@ -1,6 +1,7 @@
 "use strict";
 
 var isPremium = false;
+var snagCSRF;
 
 var handleLocation = function handleLocation(e) {
   e.preventDefault();
@@ -132,21 +133,33 @@ var LocationPage = function LocationPage(props) {
   console.log(props.Object);
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
-  }, props.props.name), /*#__PURE__*/React.createElement("h2", {
+  }, "Location: ", props.props.name), /*#__PURE__*/React.createElement("h2", {
     id: "countryTitle"
-  }, props.props.country), /*#__PURE__*/React.createElement("h3", {
+  }, "Country: ", props.props.country), /*#__PURE__*/React.createElement("h3", {
     id: "ratingTitle"
-  }, props.props.rating, "/5"), /*#__PURE__*/React.createElement("p", {
+  }, "Rating: ", props.props.rating, "/5"), /*#__PURE__*/React.createElement("p", {
     id: "descriptionTitle"
-  }, props.props.description), /*#__PURE__*/React.createElement("p", {
+  }, "Reason For Visit: ", props.props.description), /*#__PURE__*/React.createElement("p", {
     id: "reviewTitle"
-  }, props.props.review));
+  }, "Review: ", props.props.review), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      getToken;
+    }
+  }, "return"));
 };
 
 function handleClick(location) {
   //e.preventDefault();
   console.log("button clicked " + location);
   renderLocationPage(location);
+}
+
+function removeLocationClick(csrf) {
+  //e.preventDefault();
+  console.log("button clicked " + location);
+  ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
+    csrf: csrf
+  }), document.querySelector("#mapContainer"));
 }
 
 var LocationList = function LocationList(props) {
@@ -177,7 +190,7 @@ var LocationList = function LocationList(props) {
       className: "locationReview"
     }, " Review: ", location.review, " "), /*#__PURE__*/React.createElement("button", {
       onClick: function onClick() {
-        handleClick(location);
+        removeLocationClick(snagCSRF);
       }
     }, "View Location log"));
   });
@@ -258,6 +271,7 @@ var setup = function setup(csrf) {
 var getToken = function getToken() {
   sendAjax('GET', '/getToken', null, function (result) {
     setup(result.csrfToken);
+    snagCSRF = result.csrfToken;
   });
 };
 

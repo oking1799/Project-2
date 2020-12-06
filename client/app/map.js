@@ -1,5 +1,7 @@
 let isPremium = false;
 
+let snagCSRF;
+
 const handleLocation = (e) => {
     e.preventDefault();
 
@@ -107,11 +109,12 @@ const LocationPage = (props) => {
     console.log(props.Object);
     return(
         <div>
-        <h1 id="locationTitle">{props.props.name}</h1>
-        <h2 id="countryTitle">{props.props.country}</h2>
-        <h3 id="ratingTitle">{props.props.rating}/5</h3>
-        <p id="descriptionTitle">{props.props.description}</p>
-        <p id="reviewTitle">{props.props.review}</p>
+        <h1 id="locationTitle">Location: {props.props.name}</h1>
+        <h2 id="countryTitle">Country: {props.props.country}</h2>
+        <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
+        <p id="descriptionTitle">Reason For Visit: {props.props.description}</p>
+        <p id="reviewTitle">Review: {props.props.review}</p>
+        <button onClick={() => { getToken }}>return</button>
         </div>
 
     );
@@ -121,6 +124,15 @@ function handleClick(location){
     //e.preventDefault();
     console.log("button clicked " + location);
     renderLocationPage(location)
+
+}
+
+function removeLocationClick(csrf){
+    //e.preventDefault();
+    console.log("button clicked " + location);
+    ReactDOM.render(
+        <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
+    );
 
 }
 
@@ -147,7 +159,7 @@ const LocationList = function(props) {
                <h3 className="locationDescription"> Reason For Visit: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
-               <button onClick={() => { handleClick(location) }}>View Location log</button>
+               <button onClick={() => {  removeLocationClick(snagCSRF) }}>View Location log</button>
             </div>
             
         );
@@ -163,6 +175,7 @@ const LocationList = function(props) {
     
 
 const loadLocationsFromServer = (csrf) => {
+    
 
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
@@ -254,6 +267,7 @@ const setup = function(csrf) {
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {
         setup(result.csrfToken);
+        snagCSRF = result.csrfToken;
     });
     
 };
