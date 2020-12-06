@@ -127,12 +127,14 @@ const passwordChange = (request, response) => {
           return res.status(404).json({ error: 'No Account Found' });
         })
 
-        .catch((err) => {
+        .catch(() => {
           console.log(`Failed to find and update Document: ${err}`);
           return res.status(400).json({ error: 'An error occurred' });
         });
     });
   });
+
+  return res.status(400).json({ error: 'An error occurred' });
 };
 
 

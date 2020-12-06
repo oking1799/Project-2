@@ -70,7 +70,6 @@ LocationSchema.statics.findByOwner = (ownerID, callback) => {
 };
 
 
-
 LocationModel = mongoose.model('Location', LocationSchema);
 
 module.exports.LocationModel = LocationModel;
