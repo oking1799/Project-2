@@ -129,15 +129,16 @@ var NoAds = function NoAds() {
 };
 
 var LocationPage = function LocationPage(props) {
-  console.log(props);
   console.log(props.props.name);
-  console.log(props.Object);
   return /*#__PURE__*/React.createElement("div", {
     className: "popUp"
   }, /*#__PURE__*/React.createElement("span", {
     className: "helper"
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "popupCloseButton"
+    className: "popupCloseButton",
+    onClick: function onClick() {
+      removeLocationClick(snagCSRF);
+    }
   }, "\xD7"), /*#__PURE__*/React.createElement("h1", {
     id: "locationTitle"
   }, "Location: ", props.props.name), /*#__PURE__*/React.createElement("h2", {
@@ -159,14 +160,13 @@ var LocationPage = function LocationPage(props) {
 function handleClick(location) {
   //e.preventDefault();
   console.log("button clicked " + location);
-  $('.popUp').show();
-  renderLocationPage(location);
+  $('.popUp').show(); //renderLocationPage(location)
 }
 
 function removeLocationClick(csrf) {
   //e.preventDefault();
-  console.log("button clicked " + location);
-  console.log(currentPage);
+  //console.log("button clicked " + location);
+  //console.log(currentPage);
   $('.popUp').hide();
 
   if (currentPage == "user") {

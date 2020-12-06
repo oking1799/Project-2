@@ -106,14 +106,12 @@ const NoAds = () => {
 }
 
 const LocationPage = (props) => {
-    console.log(props);
     console.log(props.props.name);
-    console.log(props.Object);
     return(
         <div className="popUp">
         <span className="helper"></span>
         <div>
-        <div className="popupCloseButton">&times;</div>
+        <div className="popupCloseButton"onClick={() => { removeLocationClick(snagCSRF) }}>&times;</div>
         <h1 id="locationTitle">Location: {props.props.name}</h1>
         <h2 id="countryTitle">Country: {props.props.country}</h2>
         <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
@@ -130,14 +128,14 @@ function handleClick(location){
     //e.preventDefault();
     console.log("button clicked " + location);
     $('.popUp').show();
-    renderLocationPage(location)
+    //renderLocationPage(location)
 
 }
 
 function removeLocationClick(csrf){
     //e.preventDefault();
-    console.log("button clicked " + location);
-    console.log(currentPage);
+    //console.log("button clicked " + location);
+    //console.log(currentPage);
     $('.popUp').hide();
     if(currentPage == "user"){
     ReactDOM.render(
