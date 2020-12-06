@@ -233,7 +233,7 @@ const loadSearchedLocations = () => {
 
 const renderLocationPage = (location) => {
     ReactDOM.render(
-        <LocationPage props={location} />, document.querySelector("#mapContainer")
+        <LocationPage props={location} />, document.querySelector("body")
         );
   
 }

@@ -249,7 +249,7 @@ var loadSearchedLocations = function loadSearchedLocations() {
 var renderLocationPage = function renderLocationPage(location) {
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
     props: location
-  }), document.querySelector("#mapContainer"));
+  }), document.querySelector("body"));
 };
 
 var removeNonPremium = function removeNonPremium() {
