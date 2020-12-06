@@ -102,14 +102,14 @@ const NoAds = () => {
 }
 
 const LocationPage = (props) => {
-    console.log(props);
+    console.log(props.name);
     return(
         <div>
-        <h1 id="locationTitle">{ props.name }</h1>
-        <h2 id="countryTitle">{ props.country}</h2>
-        <h3 id="ratingTitle">{ props.rating }/5</h3>
-        <p id="descriptionTitle">{ props.description }</p>
-        <p id="reviewTitle">{ props.review }</p>
+        <h1 id="locationTitle">{props.name}</h1>
+        <h2 id="countryTitle">{props.country}</h2>
+        <h3 id="ratingTitle">{props.rating}/5</h3>
+        <p id="descriptionTitle">{props.description}</p>
+        <p id="reviewTitle">{props.review}</p>
         </div>
 
     );
