@@ -200,18 +200,18 @@ var LocationList = function LocationList(props) {
       className: "location"
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
-    }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
+    }, " ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
       className: "locationRating"
-    }, " Rating: ", location.rating, " "), /*#__PURE__*/React.createElement("button", {
+    }, " ", location.rating, " "), /*#__PURE__*/React.createElement("button", {
       className: "trigger_popUp",
       onClick: function onClick() {
         handleClick(location);
       }
     }, "More Info"));
   });
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Your Locations"), /*#__PURE__*/React.createElement("div", {
     className: "locationList"
-  }, locationNodes);
+  }, locationNodes));
 };
 
 var loadLocationsFromServer = function loadLocationsFromServer(csrf) {

@@ -169,8 +169,8 @@ const LocationList = function(props) {
            
            <div key={location._id} className="location" >
                
-               <h3 className="locationName"> Name: {location.name} </h3>
-               <h3 className="locationRating"> Rating: {location.rating} </h3>
+               <h3 className="locationName"> {location.name} </h3>
+               <h3 className="locationRating"> {location.rating} </h3>
                <button className="trigger_popUp" onClick={() => { handleClick(location) }}>More Info</button>
             </div>
             
@@ -178,8 +178,11 @@ const LocationList = function(props) {
     });
 
     return (
+        <div>
+            <h2>Your Locations</h2>
         <div className="locationList">
             {locationNodes}
+        </div>
         </div>
     );
 };
