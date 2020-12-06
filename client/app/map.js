@@ -132,6 +132,7 @@ function handleClick(location){
 function removeLocationClick(csrf){
     //e.preventDefault();
     console.log("button clicked " + location);
+    console.log(currentPage);
     if(currentPage == "user"){
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
