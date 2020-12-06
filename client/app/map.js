@@ -136,7 +136,7 @@ const LocationList = function(props) {
    
     
     const locationNodes = props.locations.slice(0).reverse().map(function(location) {
-        
+        console.log(location);
         return (
            
            <div key={location._id} className="location" >
@@ -146,7 +146,7 @@ const LocationList = function(props) {
                <h3 className="locationDescription"> Reason For Visit: {location.description} </h3>
                <h3 className="locationRating"> Rating: {location.rating} </h3>
                <h3 className="locationReview"> Review: {location.review} </h3>
-               <button onClick={() => {handleClick(location) }}>View page</button>
+               <button onClick={() => {handleClick(location) }}>View Location log</button>
             </div>
             
         );

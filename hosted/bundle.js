@@ -160,6 +160,7 @@ var LocationList = function LocationList(props) {
   }
 
   var locationNodes = props.locations.slice(0).reverse().map(function (location) {
+    console.log(location);
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
       className: "location"
@@ -177,7 +178,7 @@ var LocationList = function LocationList(props) {
       onClick: function onClick() {
         handleClick(location);
       }
-    }, "View page"));
+    }, "View Location log"));
   });
   return /*#__PURE__*/React.createElement("div", {
     className: "locationList"
