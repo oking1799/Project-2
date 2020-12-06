@@ -117,7 +117,7 @@ const LocationPage = (props) => {
         <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
         <p id="descriptionTitle">Reason For Visit: {props.props.description}</p>
         <p id="reviewTitle">Review: {props.props.review}</p>
-        <button id="returnButton"onClick={() => { removeLocationClick(snagCSRF) }}>return</button>
+        
         </div>
         </div>
 
@@ -128,7 +128,7 @@ function handleClick(location){
     //e.preventDefault();
     console.log("button clicked " + location);
     $('.popUp').show();
-    //renderLocationPage(location)
+    renderLocationPage(location)
 
 }
 

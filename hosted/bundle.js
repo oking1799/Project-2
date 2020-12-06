@@ -149,18 +149,14 @@ var LocationPage = function LocationPage(props) {
     id: "descriptionTitle"
   }, "Reason For Visit: ", props.props.description), /*#__PURE__*/React.createElement("p", {
     id: "reviewTitle"
-  }, "Review: ", props.props.review), /*#__PURE__*/React.createElement("button", {
-    id: "returnButton",
-    onClick: function onClick() {
-      removeLocationClick(snagCSRF);
-    }
-  }, "return")));
+  }, "Review: ", props.props.review)));
 };
 
 function handleClick(location) {
   //e.preventDefault();
   console.log("button clicked " + location);
-  $('.popUp').show(); //renderLocationPage(location)
+  $('.popUp').show();
+  renderLocationPage(location);
 }
 
 function removeLocationClick(csrf) {
