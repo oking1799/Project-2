@@ -2,6 +2,8 @@ let isPremium = false;
 
 let snagCSRF;
 
+let currentPage;
+
 const handleLocation = (e) => {
     e.preventDefault();
 
@@ -130,9 +132,17 @@ function handleClick(location){
 function removeLocationClick(csrf){
     //e.preventDefault();
     console.log("button clicked " + location);
+    if(currentPage == "user"){
     ReactDOM.render(
         <MapForm csrf={csrf} />, document.querySelector("#mapContainer")
     );
+}else{
+    ReactDOM.render(
+        <LocationSearch csrf={csrf} />, document.querySelector("#mapContainer")
+    )
+
+    
+}
 
 }
 
@@ -197,6 +207,7 @@ const loadLocationsFromServer = (csrf) => {
 };
 
 const loadAllLocationsFromServer = (csrf) => {
+    currentPage = "all";
 ReactDOM.render(
     <LocationSearch csrf={csrf} />, document.querySelector("#mapContainer")
 );
@@ -208,6 +219,7 @@ ReactDOM.render(
 }
 
 const loadSearchedLocations = () => {
+    currentPage = "all";
     sendAjax('GET', '/search', null, (data) => {
         ReactDOM.render(
             <LocationList locations={data.locations} />, document.querySelector("#locations")
@@ -218,6 +230,7 @@ const loadSearchedLocations = () => {
 }
 
 const renderLocationPage = (location) => {
+    currentPage = "user";
     ReactDOM.render(
         <LocationPage props={location} />, document.querySelector("#mapContainer")
         );

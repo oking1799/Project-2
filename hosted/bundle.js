@@ -2,6 +2,7 @@
 
 var isPremium = false;
 var snagCSRF;
+var currentPage;
 
 var handleLocation = function handleLocation(e) {
   e.preventDefault();
@@ -157,9 +158,16 @@ function handleClick(location) {
 function removeLocationClick(csrf) {
   //e.preventDefault();
   console.log("button clicked " + location);
-  ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
-    csrf: csrf
-  }), document.querySelector("#mapContainer"));
+
+  if (currentPage == "user") {
+    ReactDOM.render( /*#__PURE__*/React.createElement(MapForm, {
+      csrf: csrf
+    }), document.querySelector("#mapContainer"));
+  } else {
+    ReactDOM.render( /*#__PURE__*/React.createElement(LocationSearch, {
+      csrf: csrf
+    }), document.querySelector("#mapContainer"));
+  }
 }
 
 var LocationList = function LocationList(props) {
@@ -218,6 +226,7 @@ var loadLocationsFromServer = function loadLocationsFromServer(csrf) {
 };
 
 var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
+  currentPage = "all";
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationSearch, {
     csrf: csrf
   }), document.querySelector("#mapContainer"));
@@ -229,6 +238,7 @@ var loadAllLocationsFromServer = function loadAllLocationsFromServer(csrf) {
 };
 
 var loadSearchedLocations = function loadSearchedLocations() {
+  currentPage = "all";
   sendAjax('GET', '/search', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(LocationList, {
       locations: data.locations
@@ -237,6 +247,7 @@ var loadSearchedLocations = function loadSearchedLocations() {
 };
 
 var renderLocationPage = function renderLocationPage(location) {
+  currentPage = "user";
   ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
     props: location
   }), document.querySelector("#mapContainer"));
