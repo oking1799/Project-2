@@ -134,7 +134,7 @@ const passwordChange = (request, response) => {
     });
   });
 
-  return res.status(400).json({ error: 'An error occurred' });
+  
 };
 
 
