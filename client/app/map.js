@@ -134,7 +134,7 @@ const LocationList = function(props) {
         
         return (
            
-           <div key={location._id} className="location" onclick={renderLocationPage(location)}>
+           <div key={location._id} className="location" onclick={handleClick(location)}>
                
                <h3 className="locationName"> Name: {location.name} </h3>
                <h3 className="locationCountry"> Country: {location.country} </h3>
@@ -199,13 +199,13 @@ const loadSearchedLocations = () => {
 
 const renderLocationPage = (div) => {
 
-    let element = div.getElementById("name");
-    console.log(element);
-    sendAjax('GET', '/search', element.serialize(), (data) => {
-        ReactDOM.render(
-        <LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
-        );
-    });
+    //let element = div.getElementById("name");
+    //console.log(element);
+    //sendAjax('GET', '/search', element.serialize(), (data) => {
+        //ReactDOM.render(
+        //<LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
+        //);
+   // });
 }
 
 const removeNonPremium = () => {

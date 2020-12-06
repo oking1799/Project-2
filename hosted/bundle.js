@@ -157,7 +157,7 @@ var LocationList = function LocationList(props) {
     return /*#__PURE__*/React.createElement("div", {
       key: location._id,
       className: "location",
-      onclick: renderLocationPage(location)
+      onclick: handleClick(location)
     }, /*#__PURE__*/React.createElement("h3", {
       className: "locationName"
     }, " Name: ", location.name, " "), /*#__PURE__*/React.createElement("h3", {
@@ -212,14 +212,13 @@ var loadSearchedLocations = function loadSearchedLocations() {
   });
 };
 
-var renderLocationPage = function renderLocationPage(div) {
-  var element = div.getElementById("name");
-  console.log(element);
-  sendAjax('GET', '/search', element.serialize(), function (data) {
-    ReactDOM.render( /*#__PURE__*/React.createElement(LocationPage, {
-      locations: data.locations
-    }), document.querySelector("#mapContainer"));
-  });
+var renderLocationPage = function renderLocationPage(div) {//let element = div.getElementById("name");
+  //console.log(element);
+  //sendAjax('GET', '/search', element.serialize(), (data) => {
+  //ReactDOM.render(
+  //<LocationPage locations={data.locations} />, document.querySelector("#mapContainer")
+  //);
+  // });
 };
 
 var removeNonPremium = function removeNonPremium() {
