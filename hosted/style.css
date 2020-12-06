@@ -228,10 +228,10 @@ nav:nth-child(1) {
     font-weight: bold;
 }
 
-#locationRatings, #locationH1, #searchInstructions, #locationName, #locationRating{
+#locationRatings, #locationH1, #searchInstructions, .locationName, .locationRating{
     text-align: center;
 }
 
 #searchLabel{
-    margin-left: 40%;
+    margin-left: 35%;
 }
