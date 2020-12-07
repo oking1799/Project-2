@@ -231,7 +231,7 @@ nav:nth-child(1) {
     
 }
 
-#locationRatings, #locationH1, #searchInstructions, #locationsH2{
+#locationRatings, #locationH1, #searchInstructions, #locationsH2, #info{
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }

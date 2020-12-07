@@ -54,6 +54,8 @@ const handlePassword = (e) => {
 
 const LoginWindow = (props) => {
     return (
+        <div>
+        <h1 id="info">Log in Here:</h1>
         <form id="loginForm" name="loginForm"
                 onSubmit={handleLogin}
                 action="/login"
@@ -68,11 +70,14 @@ const LoginWindow = (props) => {
     <input className="formSubmit" type="submit" value="Sign in"/>
 
     </form>
+    </div>
     );
 };
 
 const SignupWindow = (props) => {
     return (
+        <div>
+        <h1 id="info">Log in Here:</h1>
         <form id="signupForm"
                 name="signupForm"
                 onSubmit={handleSignup}
@@ -89,11 +94,14 @@ const SignupWindow = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="formSubmit" type="submit" value="Sign up" />
     </form>
+    </div>
     ); 
 };
 
 const PasswordWindow = (props) => {
     return (
+        <div>
+        <h1 id="info">Log in Here:</h1>
         <form id="passwordForm"
                 name="passwordForm"
                 onSubmit={handlePassword}
@@ -110,6 +118,7 @@ const PasswordWindow = (props) => {
         <input type="hidden" name="_csrf" value={props.csrf} />
         <input className="formSubmit" type="submit" value="Submit" />
     </form>
+    </div>
     ); 
 };
 

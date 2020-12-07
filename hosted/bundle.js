@@ -306,7 +306,7 @@ $(document).ready(function () {
 "use strict";
 
 var handleError = function handleError(message) {
-  $("#errorMessage").text(message);
+  $("#info").innerHTML(message);
 };
 
 var redirect = function redirect(response) {

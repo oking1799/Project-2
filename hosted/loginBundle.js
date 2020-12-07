@@ -45,7 +45,9 @@ var handlePassword = function handlePassword(e) {
 };
 
 var LoginWindow = function LoginWindow(props) {
-  return /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    id: "info"
+  }, "Log in Here:"), /*#__PURE__*/React.createElement("form", {
     id: "loginForm",
     name: "loginForm",
     onSubmit: handleLogin,
@@ -74,11 +76,13 @@ var LoginWindow = function LoginWindow(props) {
     className: "formSubmit",
     type: "submit",
     value: "Sign in"
-  }));
+  })));
 };
 
 var SignupWindow = function SignupWindow(props) {
-  return /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    id: "info"
+  }, "Log in Here:"), /*#__PURE__*/React.createElement("form", {
     id: "signupForm",
     name: "signupForm",
     onSubmit: handleSignup,
@@ -114,11 +118,13 @@ var SignupWindow = function SignupWindow(props) {
     className: "formSubmit",
     type: "submit",
     value: "Sign up"
-  }));
+  })));
 };
 
 var PasswordWindow = function PasswordWindow(props) {
-  return /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+    id: "info"
+  }, "Log in Here:"), /*#__PURE__*/React.createElement("form", {
     id: "passwordForm",
     name: "passwordForm",
     onSubmit: handlePassword,
@@ -154,7 +160,7 @@ var PasswordWindow = function PasswordWindow(props) {
     className: "formSubmit",
     type: "submit",
     value: "Submit"
-  }));
+  })));
 };
 
 var createLoginWindow = function createLoginWindow(csrf) {
@@ -209,7 +215,7 @@ $(document).ready(function () {
 "use strict";
 
 var handleError = function handleError(message) {
-  $("#errorMessage").text(message);
+  $("#info").innerHTML(message);
 };
 
 var redirect = function redirect(response) {
