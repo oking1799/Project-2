@@ -81,7 +81,7 @@ const searchedLocation = (request, response) => Location.LocationModel.find({ na
     console.log(err);
     return response.status(400).json({ message: request });
   }
-  // searchedLocations = response.json({ locations: docs });
+  
   console.log(`searched locations returned: ${docs}`);
   return response.json({ locations: docs });
 });
@@ -89,6 +89,5 @@ const searchedLocation = (request, response) => Location.LocationModel.find({ na
 module.exports.make = makeLocation;
 module.exports.getLocations = getLocations;
 module.exports.getAllLocations = getAllLocations;
-// module.exports.searchLocation = searchLocation;
 module.exports.getSearched = searchedLocation;
 module.exports.mapPage = mapPage;

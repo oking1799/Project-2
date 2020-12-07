@@ -115,7 +115,7 @@ const LocationPage = (props) => {
         <h1 id="locationTitle">Location: {props.props.name}</h1>
         <h2 id="countryTitle">Country: {props.props.country}</h2>
         <h3 id="ratingTitle">Rating: {props.props.rating}/5</h3>
-        <p id="descriptionTitle">Reason For Visit: {props.props.description}</p>
+        <p id="descriptionTitle">description: {props.props.description}</p>
         <p id="reviewTitle">Review: {props.props.review}</p>
         
         </div>

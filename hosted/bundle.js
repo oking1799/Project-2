@@ -159,7 +159,7 @@ var LocationPage = function LocationPage(props) {
     id: "ratingTitle"
   }, "Rating: ", props.props.rating, "/5"), /*#__PURE__*/React.createElement("p", {
     id: "descriptionTitle"
-  }, "Reason For Visit: ", props.props.description), /*#__PURE__*/React.createElement("p", {
+  }, "description: ", props.props.description), /*#__PURE__*/React.createElement("p", {
     id: "reviewTitle"
   }, "Review: ", props.props.review)));
 };
