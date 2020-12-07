@@ -170,7 +170,7 @@ const LocationList = function(props) {
            <div key={location._id} className="location" >
                
                <h3 className="locationName"> {location.name} </h3>
-               <h3 className="locationRating"> Rating: {location.rating} </h3>
+               <h3 className="locationRating"> Rating: {location.rating}/5 </h3>
                <button className="trigger_popUp" onClick={() => { handleClick(location) }}>More Info</button>
             </div>
             
