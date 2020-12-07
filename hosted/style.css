@@ -231,7 +231,7 @@ nav:nth-child(1) {
     
 }
 
-#locationRatings, #locationH1, #searchInstructions, #locationsH2, #info{
+#locationRatings, #locationH1, #searchInstructions, #locationsH2{
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -251,4 +251,10 @@ nav:nth-child(1) {
 #nameLabel, #countryLabel, #descriptionLabel, #ratingLabel, #reviewLabel{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+}
+
+#info{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 400px;
 }

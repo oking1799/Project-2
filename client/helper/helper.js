@@ -1,5 +1,5 @@
 const handleError = (message) => {
-    $("#info").innerHTML(message);
+    $("#info").text(message);
 };
 
 const redirect = (response) => {
